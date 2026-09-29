@@ -111,7 +111,7 @@ export function PropertyTax() {
 
             <div className="field">
               <label className="field-label" htmlFor="value">
-                {sale ? "Ugovorena cena (RSD)" : "Tržišna vrednost imovine (RSD)"}
+                {sale ? "Ugovorena cena (RSD)" : "Poreska osnovica (RSD)"}
               </label>
               <input
                 id="value"
@@ -130,7 +130,11 @@ export function PropertyTax() {
                 aria-invalid={!r}
               />
               <p className="field-hint" id="value-hint">
-                {r ? "Iznos u dinarima, bez decimala." : "Unesite vrednost veću od nule."}
+                {!r
+                  ? "Unesite vrednost veću od nule."
+                  : sale
+                    ? "Iznos u dinarima, bez decimala."
+                    : "Tržišna vrednost umanjena za dugove i troškove iz člana 16, u dinarima bez decimala."}
               </p>
             </div>
           </form>
@@ -149,7 +153,7 @@ export function PropertyTax() {
             {r && (
               <dl className="calc-breakdown">
                 <div>
-                  <dt>Osnovica: {sale ? "ugovorena cena" : "tržišna vrednost"}</dt>
+                  <dt>Osnovica: {sale ? "ugovorena cena" : "tržišna vrednost umanjena po članu 16"}</dt>
                   <dd>{rsd(value)}</dd>
                 </div>
                 <div>

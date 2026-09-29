@@ -19,6 +19,7 @@ export const SOURCES = [
 const changes = (amount) => ({ key: "promene", label: "Broj promena u prijavi", amount, from: 1 });
 // Član 16: each further subject or thing in one pledge filing adds 300 dinars to the fees from čl. 11–15.
 const pledgeItems = { key: "stvari", label: "Broj subjekata ili stvari u prijavi", amount: 300, from: 1 };
+const pledgeLate = { amount: 3_130, basis: "član 21" };
 
 export const SERVICES = [
   { id: "osnivanje-drustva", label: "Osnivanje DOO ili drugog privrednog društva", amount: 8_000, basis: "član 2" },
@@ -33,7 +34,8 @@ export const SERVICES = [
       changes(3_000),
       { key: "clanovi", label: "Članovi ili suvlasnici čiji se udeo upisuje", amount: 500, from: 0 },
     ],
-    late: 6_260,
+    // Changes that take effect by registration (e.g. a share transfer) owe no late fee, so the page says so next to the checkbox.
+    late: { amount: 6_260, basis: "član 3", note: "Ne plaća se za promene koje nastaju upisom, na primer prenos udela." },
   },
   { id: "promena-preduzetnika", label: "Promena podataka o preduzetniku", amount: 1_400, basis: "član 9", extras: [changes(700)] },
   { id: "brisanje-drustva", label: "Brisanje privrednog društva ili udruženja", amount: 4_000, basis: "član 4 tač. 4" },
@@ -43,8 +45,8 @@ export const SERVICES = [
   { id: "zaloga-10", label: "Upis zaloge, potraživanje do 10.000 evra", amount: 3_000, basis: "član 11", extras: [pledgeItems] },
   { id: "zaloga-200", label: "Upis zaloge, potraživanje preko 10.000 do 200.000 evra", amount: 7_000, basis: "član 11", extras: [pledgeItems] },
   { id: "zaloga-vise", label: "Upis zaloge, potraživanje preko 200.000 evra", amount: 14_000, basis: "član 11", extras: [pledgeItems] },
-  { id: "zaloga-izmena", label: "Izmena upisane zaloge", amount: 3_000, basis: "član 15", extras: [pledgeItems] },
-  { id: "zaloga-brisanje", label: "Brisanje zaloge", amount: 1_500, basis: "član 18" },
+  { id: "zaloga-izmena", label: "Izmena upisane zaloge", amount: 3_000, basis: "član 15", extras: [pledgeItems], late: pledgeLate },
+  { id: "zaloga-brisanje", label: "Brisanje zaloge", amount: 1_500, basis: "član 18", late: pledgeLate },
   { id: "izvod-drustva", label: "Izvod o privrednom društvu", amount: 2_500, basis: "član 7" },
   { id: "izvod-preduzetnika", label: "Izvod o preduzetniku", amount: 1_500, basis: "član 10" },
 ];
@@ -58,7 +60,7 @@ export function aprFee({ service, counts = {}, late = false }) {
     const extra = Math.max(0, (counts[e.key] ?? e.from) - e.from);
     if (extra) lines.push({ label: `${e.label}: još ${extra}`, amount: extra * e.amount });
   }
-  if (late && s.late) lines.push({ label: "Prijava podneta posle roka od 15 dana", basis: "član 3", amount: s.late });
+  if (late && s.late) lines.push({ label: "Neblagovremeno podneta prijava", basis: s.late.basis, amount: s.late.amount });
   return { service: s, lines, total: lines.reduce((sum, l) => sum + l.amount, 0) };
 }
 

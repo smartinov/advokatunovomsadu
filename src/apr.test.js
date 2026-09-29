@@ -34,6 +34,8 @@ test("extra changes, members, pledge items and late filing", () => {
   assert.equal(total("promena-preduzetnika", { promene: 3 }), 2_800);
   assert.equal(total("zaloga-200", { stvari: 4 }), 7_900);
   assert.equal(total("zaloga-izmena", { stvari: 2 }), 3_300);
+  assert.equal(total("zaloga-izmena", {}, true), 3_000 + 3_130);
+  assert.equal(total("zaloga-brisanje", {}, true), 1_500 + 3_130);
   // Counts at or below the included minimum and late filing on services without it change nothing.
   assert.equal(total("promena-preduzetnika", { promene: 1 }, true), 1_400);
   assert.equal(total("osnivanje-drustva", { promene: 5 }), 8_000);

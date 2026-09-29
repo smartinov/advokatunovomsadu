@@ -56,5 +56,8 @@ test("query round-trips and drops invalid params", () => {
   assert.deepEqual(readQuery(new URLSearchParams(toParams(criminalQ)).toString()), criminalQ);
   assert.deepEqual(readQuery("?postupak=constructor&radnja=tuzba&vrednost=-5&kazna=x"), { action: "tuzba" });
   assert.deepEqual(readQuery("?radnja=pretres"), {});
+  const partial = readQuery("?postupak=krivicni&radnja=tuzba");
+  assert.equal(partial.mode, "krivicni");
+  assert.ok(attorneyFee({ ...partial, penalty: "do-3" }));
   assert.deepEqual(readQuery(""), {});
 });

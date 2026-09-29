@@ -114,6 +114,7 @@ Propis: Odluka o naknadama za poslove registracije i druge usluge koje pruža Ag
 | Izmena zaloge (3.000) | član 15 | Paragraf Lex |
 | Svaki sledeći subjekt ili stvar u prijavi zaloge (+300) | član 16 | Paragraf Lex |
 | Brisanje zaloge (1.500) | član 18 | Paragraf Lex |
+| Neblagovremena prijava izmene ili brisanja zaloge (3.130) | član 21 | Paragraf Lex |
 | Račun 840-1308664-17, model 97 | član 39; stranice APR-a za privredna društva, preduzetnike i udruženja | APR |
 
 Pomoćni izvori, korišćeni za unakrsnu proveru:
@@ -126,6 +127,8 @@ Otvorena pitanja za kancelariju:
 - Nije provereno da li je posle 95/2025 objavljena izmena ili usklađivanje (Pravno-informacioni sistem nije pretražen). Proveriti pre objave i posle svakog decembra.
 - Ortačko i komanditno društvo nisu posebno navedeni u Odluci; kalkulator ih računa kao „privredno društvo“ (član 2).
 - Likvidacija nema posebnu naknadu u Odluci; prijave u likvidaciji verovatno idu kao promena podataka (4.000). Kalkulator to ne prikazuje posebno.
+- Kalkulator navodi da se dodatna naknada za kasnu prijavu (6.260) ne plaća za promene koje nastaju upisom, na primer prenos udela. To pravilo je sa stranice APR-a, ne iz teksta Odluke; potvrdite ga.
+- Dodatnu naknadu od 3.130 dinara (član 21) kalkulator nudi samo za izmenu i brisanje zaloge. Potvrdite za koje prijave zaloge rok postoji.
 - Račun za uplatu naknade za registar zaloge nije potvrđen, pa ga kalkulator ne navodi.
 - Kalkulator ne sadrži naknade za finansijske izveštaje, stečaj, statusne promene, ogranke i potvrde.
 
@@ -141,7 +144,7 @@ Propis: Zakon o republičkim administrativnim taksama, tarifni broj 1 (zahtev) i
 | Upis svojine (7.010 + 2.100 po sledećoj ispravi) | TB 215b st. 5 t. 12 | isto |
 | Susvojina supružnika, osobe sa invaliditetom (420) | TB 215b st. 5 t. 13 | isto |
 | Upis hipoteke (29.390 / 73.490 / 146.930 / 220.390) | TB 215b st. 5 t. 16 | isto; [izmene 109/2025](https://www.paragraf.rs/izmene_i_dopune/041225-zakon-o-izmenama-i-dopunama-zakona-o-republickim-administrativnim-taksama.html) |
-| Zabeležbe (4.210 / 1.010 / 4.830) | TB 215b st. 5 t. 19 | isto |
+| Zabeležbe (4.210 / 1.010 / 4.830), po ispravi | TB 215b st. 5 t. 19 | isto |
 | Brisanje hipoteke (4.830) i zabeležbe (1.200), po ispravi | TB 215b st. 5 t. 20 | isto |
 | Upis objekta (7.710) | TB 215b st. 5 t. 3 | isto |
 | Poseban deo objekta (6.290 + 2.100 po sledećem) | TB 215b st. 5 t. 5 | isto |

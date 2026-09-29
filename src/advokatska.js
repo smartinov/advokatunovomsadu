@@ -89,6 +89,8 @@ export function readQuery(search) {
   const out = {};
   if (MODES.some((m) => m.id === q.get("postupak"))) out.mode = q.get("postupak");
   if (ACTIONS[out.mode ?? "parnica"].some((a) => a.id === q.get("radnja"))) out.action = q.get("radnja");
+  // A mode switch without a valid action would keep the other mode's action and show no result.
+  else if (out.mode) out.action = ACTIONS[out.mode][0].id;
   const value = positiveInt(q.get("vrednost"));
   if (value) out.value = value;
   if (PENALTIES.some((p) => p.id === q.get("kazna"))) out.penalty = q.get("kazna");

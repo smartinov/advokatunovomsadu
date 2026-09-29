@@ -39,6 +39,8 @@ test("mortgage tiers by secured claim, upper bounds inclusive", () => {
 test("per-item increments", () => {
   assert.equal(total("svojina", { isprave: 3 }), 430 + 7_010 + 2 * 2_100);
   assert.equal(total("brisanje-hipoteke", { isprave: 2 }), 430 + 2 * 4_830);
+  assert.equal(total("zabelezba", { isprave: 2 }), 430 + 2 * 4_830);
+  assert.equal(total("brisanje-zabelezbe", { isprave: 2 }), 430 + 2 * 1_200);
   assert.equal(total("poseban-deo", { delovi: 4 }), 430 + 6_290 + 3 * 2_100);
   assert.equal(total("list", { nepokretnosti: 3 }), 430 + 3 * 710);
   assert.equal(total("kopija-plana", { parcele: 3 }), 430 + 1_010 + 2 * 430);

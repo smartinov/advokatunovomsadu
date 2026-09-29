@@ -113,13 +113,15 @@ export function FeeCalculator({ label, title, lede, resultLabel, services, fee, 
                   <input
                     type="checkbox"
                     checked={late}
+                    aria-describedby={s.late.note ? "late-hint" : undefined}
                     onChange={(e) => {
                       setLate(e.target.checked);
                       share({ late: e.target.checked });
                     }}
                   />
-                  Prijava se podnosi posle roka od 15 dana
+                  Prijava se podnosi posle zakonskog roka
                 </label>
+                {s.late.note && <p className="field-hint" id="late-hint">{s.late.note}</p>}
               </div>
             )}
           </form>
