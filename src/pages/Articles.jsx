@@ -40,13 +40,12 @@ export function Articles() {
                   <img src={a.img} alt="" width="800" height="600" loading="lazy" />
                 </span>
                 <div>
+                  <span className="meta">
+                    <span className="tag">{a.tag}</span> · {readingMinutes(a)} min čitanja
+                  </span>
                   <h2>{a.title}</h2>
                   <p>{a.lede}</p>
                 </div>
-                <span className="meta">
-                  <span>{a.tag}</span>
-                  {readingMinutes(a)} min čitanja
-                </span>
               </a>
             </li>
           ))}
