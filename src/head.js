@@ -61,7 +61,12 @@ function breadcrumbs(items) {
   };
 }
 
-const pageCrumbs = (route) => breadcrumbs([["Početna", "/"], [route.title.split(" | ")[0], route.path]]);
+const pageCrumbs = (route) =>
+  breadcrumbs([
+    ["Početna", "/"],
+    ...(route.hub ? [["Kalkulatori", "/kalkulatori/"]] : []),
+    [route.title.split(" | ")[0], route.path],
+  ]);
 
 function structuredData(route, base) {
   if (route.page === "home") return [firm()];

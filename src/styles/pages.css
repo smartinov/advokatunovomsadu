@@ -18,6 +18,13 @@
 .article-row h2 { font-size: clamp(24px, 2.4vw, 34px); }
 .article-row:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 .article-row p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
+
+/* ----- Calculators hub ----- */
+.calc-hub { list-style: none; margin-block: 0; padding-block: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 40px; }
+.calc-hub a { display: block; height: 100%; padding: 28px 0; border-top: 1px solid var(--rule); text-decoration: none; }
+.calc-hub h2 { font-size: clamp(22px, 2vw, 28px); }
+.calc-hub a:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.calc-hub p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
 .article-row .meta { display: block; margin-bottom: 8px; }
 .article-row .tag { color: var(--copper-text); }
 
@@ -65,7 +72,7 @@
 .faq-answer a { color: var(--copper-text); }
 
 /* ----- Calculator ----- */
-.calc-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; padding-block: 72px 96px; }
+.calc-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; align-items: start; padding-block: 72px 96px; }
 .calc-card { background: var(--bg-elev); border: 1px solid var(--rule); padding: 40px; }
 .calc-card fieldset { border: 0; padding: 0; margin: 0 0 28px; }
 .calc-card legend, .field-label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; padding: 0; }
@@ -81,7 +88,7 @@
 }
 .input:focus, .select:focus, .textarea:focus { outline: 2px solid var(--copper); outline-offset: 0; border-color: var(--copper); }
 .input-money { font-family: var(--mono); font-size: 20px; }
-.segmented { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink-mute); }
+.segmented { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--ink-mute); }
 .segmented label { position: relative; padding: 14px 12px; text-align: center; font-size: 14px; font-weight: 600; cursor: pointer; }
 .segmented label + label { border-left: 1px solid var(--ink-mute); }
 .segmented input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
@@ -93,7 +100,7 @@
 .choice-list input { margin: 2px 0 0; accent-color: var(--copper-text); flex: none; }
 
 .calc-result { background: var(--bg-deep); color: var(--on-deep); padding: 48px 40px; position: sticky; top: calc(var(--header-h) + 24px); }
-.calc-total { font-family: var(--serif); font-size: clamp(52px, 7vw, 104px); line-height: 1; margin: 14px 0 6px; font-variant-numeric: tabular-nums; }
+.calc-total { font-family: var(--serif); font-size: clamp(52px, 7vw, 104px); line-height: 1; margin: 14px 0 6px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .calc-currency { font-size: 14px; letter-spacing: 0.12em; color: var(--on-deep-soft); }
 .calc-breakdown { margin: 36px 0 0; padding-top: 24px; border-top: 1px solid rgba(207, 154, 100, 0.3); }
 .calc-breakdown div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed rgba(207, 154, 100, 0.2); font-size: 15px; }
@@ -103,6 +110,9 @@
 .calc-notes { margin-top: 28px; padding: 16px 18px; border-left: 2px solid var(--copper-soft); background: rgba(207, 154, 100, 0.08); font-size: 14px; color: var(--on-deep-soft); }
 .calc-notes ul { margin: 8px 0 0; padding-left: 18px; }
 .calc-source { font-size: 14px; color: var(--ink-mute); border-top: 1px solid var(--rule); padding-top: 24px; margin-bottom: 80px; }
+.calc-source ul { margin: 8px 0 0; padding-left: 18px; }
+.calc-share { margin-top: 28px; }
+.calc-share p { margin: 10px 0 0; font-size: 14px; color: var(--on-deep-soft); overflow-wrap: anywhere; }
 
 /* ----- Contact ----- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-block: 72px 96px; }
@@ -121,7 +131,7 @@
 .form-actions .btn-ghost:hover { background: var(--ink); color: var(--bg); }
 
 @media (max-width: 980px) {
-  .calc-wrap, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .calc-wrap, .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .calc-result { position: static; }
   .article-row { grid-template-columns: 160px 1fr; }
 }

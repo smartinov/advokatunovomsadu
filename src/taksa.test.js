@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { courtFee } from "./taksa.js";
+import { courtFee, readQuery, toParams } from "./taksa.js";
 
 const fee = (court, action, value) => courtFee({ court, action, value })?.total;
 
@@ -22,6 +22,7 @@ test("commercial court brackets follow Tarifni broj 1 st. 2", () => {
 
 test("action factors", () => {
   assert.equal(fee("opsti", "presuda", 500_000), 21_000);
+  assert.equal(fee("opsti", "platni-nalog", 500_000), 21_000);
   assert.equal(fee("opsti", "presuda-polovina", 500_000), 10_500);
   assert.equal(fee("opsti", "revizija", 500_000), 42_000);
   assert.equal(fee("opsti", "izvrsenje-izvrsitelj", 500_000), 7_000);
@@ -30,4 +31,12 @@ test("action factors", () => {
 test("rejects invalid input", () => {
   assert.equal(courtFee({ court: "opsti", action: "tuzba", value: 0 }), null);
   assert.equal(courtFee({ court: "x", action: "tuzba", value: 1 }), null);
+});
+
+test("query round-trips and drops invalid params", () => {
+  const q = { court: "privredni", action: "zalba", value: 1_250_000 };
+  assert.deepEqual(readQuery(new URLSearchParams(toParams(q)).toString()), q);
+  assert.deepEqual(readQuery("?sud=x&podnesak=tuzba&vrednost=-5"), { action: "tuzba" });
+  assert.deepEqual(readQuery("?vrednost=1.5"), {});
+  assert.deepEqual(readQuery(""), {});
 });

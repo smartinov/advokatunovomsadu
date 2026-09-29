@@ -1,8 +1,21 @@
+import { positiveInt } from "./calc.js";
+
 // Court fees under the Zakon o sudskim taksama tariff, as amended by Sl. glasnik RS 91/2025.
 // Percentages apply to the whole dispute value, as the tariff text reads ("od vrednosti predmeta spora").
 
 export const LAW = "Zakon o sudskim taksama (Sl. glasnik RS 28/94 … 91/2025)";
 export const VERIFIED_ON = "29. 9. 2026.";
+
+export const SOURCES = [
+  {
+    label: "Zakon o sudskim taksama, prečišćen tekst, Pravno-informacioni sistem RS (zvanični)",
+    url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/1994/28/8/reg",
+  },
+  {
+    label: "Zakon o sudskim taksama, prečišćen tekst, Paragraf Lex",
+    url: "https://www.paragraf.rs/propisi/zakon_o_sudskim_taksama.html",
+  },
+];
 
 // Tarifni broj 1 st. 1 (sud opšte nadležnosti).
 function generalCourt(value) {
@@ -29,7 +42,14 @@ export const COURTS = [
 
 export const ACTIONS = [
   { id: "tuzba", label: "Tužba ili protivtužba", factor: 1, share: "cela taksa", basis: "Tarifni broj 1" },
-  { id: "platni-nalog", label: "Tužba sa predlogom za platni nalog", factor: 1 / 2, share: "polovina takse", basis: "Tarifni broj 1, napomena 2" },
+  {
+    id: "platni-nalog",
+    label: "Tužba sa predlogom za platni nalog",
+    // Half for the claim plus half for the payment order decision, both due on filing.
+    factor: 1,
+    share: "polovina za tužbu i polovina za rešenje o platnom nalogu, obe pri podnošenju",
+    basis: "Tarifni broj 1, napomena 2; Tarifni broj 2 st. 4 i napomena 8",
+  },
   { id: "odgovor", label: "Odgovor na tužbu", factor: 1 / 2, share: "polovina takse", basis: "Tarifni broj 1 st. 3" },
   { id: "presuda", label: "Prvostepena presuda", factor: 1, share: "cela taksa", basis: "Tarifni broj 2 st. 1" },
   { id: "presuda-polovina", label: "Presuda zbog propuštanja, na osnovu priznanja ili odricanja", factor: 1 / 2, share: "polovina takse", basis: "Tarifni broj 2 st. 2" },
@@ -47,3 +67,16 @@ export function courtFee({ court, action, value }) {
   const base = Math.round(court === "privredni" ? commercialCourt(value) : generalCourt(value));
   return { base, total: Math.round(base * a.factor), court: c, action: a };
 }
+
+// Shareable calculation: ?sud=opsti&podnesak=tuzba&vrednost=500000. Unknown or invalid params are ignored.
+export function readQuery(search) {
+  const q = new URLSearchParams(search);
+  const out = {};
+  if (COURTS.some((c) => c.id === q.get("sud"))) out.court = q.get("sud");
+  if (ACTIONS.some((a) => a.id === q.get("podnesak"))) out.action = q.get("podnesak");
+  const value = positiveInt(q.get("vrednost"));
+  if (value) out.value = value;
+  return out;
+}
+
+export const toParams = ({ court, action, value }) => ({ sud: court, podnesak: action, vrednost: value });
