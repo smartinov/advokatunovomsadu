@@ -15,6 +15,13 @@ const csp = [
   "form-action 'none'",
 ].join("; ");
 
+// Fontsource ships font-display: swap, which repaints text on every page load; with the fonts preloaded,
+// optional renders them directly and never swaps mid-read.
+const fontDisplayOptional = {
+  name: "font-display-optional",
+  transform: (code, id) => (id.includes("@fontsource") ? code.replaceAll("font-display: swap", "font-display: optional") : null),
+};
+
 // Build-only: the dev server injects inline scripts that this CSP would block.
 const cspMeta = {
   name: "csp-meta",
@@ -25,5 +32,5 @@ const cspMeta = {
 
 export default defineConfig({
   base,
-  plugins: [react(), cspMeta],
+  plugins: [react(), cspMeta, fontDisplayOptional],
 });
