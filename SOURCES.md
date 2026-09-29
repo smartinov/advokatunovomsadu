@@ -13,7 +13,7 @@ Propis: Zakon o sudskim taksama, „Sl. glasnik RS“, br. 28/94, 53/95, 16/97, 
 | Razredi i gornje granice (105.000 i 420.000 RSD) | Taksena tarifa, tarifni broj 1 st. 1 i 2 | [PIS, prečišćen tekst (zvanični)](https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/1994/28/8/reg) |
 | Polovina / trećina takse (odgovor, izvršenje, obezbeđenje) | TB 1 st. 3 | isto |
 | Žalba, revizija | TB 1 st. 4 i 5 | isto |
-| Platni nalog | TB 1 napomena 2; TB 2 st. 4 i napomena 8 | isto |
+| Platni nalog: polovina za tužbu i polovina za rešenje, obe pri podnošenju | TB 1 napomena 2; TB 2 st. 4 i napomena 8 | isto |
 | Presude | TB 2 st. 1 i 2 | isto |
 | Sudsko poravnanje | TB 3 st. 1 | isto |
 | Privredni sud i fizičko lice koje nije preduzetnik | TB 1 st. 8, TB 2 st. 11, TB 3 st. 2 | isto |
@@ -25,7 +25,7 @@ Pomoćni izvori, korišćeni za unakrsnu proveru:
 - [Paragraf Lex, Zakon o izmenama i dopunama (91/2025)](https://www.paragraf.rs/izmene_i_dopune/231025-zakon-o-izmenama-i-dopunama-zakona-o-sudskim-taksama.html)
 - [propisi.net](https://propisi.net/zakon-o-sudskim-taksama/)
 
-Otvoreno pitanje za kancelariju: po TB 2 st. 4 i napomeni 8, pri podnošenju tužbe sa predlogom za platni nalog verovatno se plaća i taksa na rešenje o platnom nalogu, dakle ukupno cela taksa. Kalkulator sada prikazuje polovinu.
+Platni nalog: uz tužbu se plaća polovina takse (TB 1 napomena 2), a pri podnošenju i polovina za rešenje o platnom nalogu (TB 2 st. 4 i napomena 8), pa kalkulator prikazuje celu taksu.
 
 ## Kalkulator advokatske tarife
 

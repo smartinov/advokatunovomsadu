@@ -22,6 +22,7 @@ test("commercial court brackets follow Tarifni broj 1 st. 2", () => {
 
 test("action factors", () => {
   assert.equal(fee("opsti", "presuda", 500_000), 21_000);
+  assert.equal(fee("opsti", "platni-nalog", 500_000), 21_000);
   assert.equal(fee("opsti", "presuda-polovina", 500_000), 10_500);
   assert.equal(fee("opsti", "revizija", 500_000), 42_000);
   assert.equal(fee("opsti", "izvrsenje-izvrsitelj", 500_000), 7_000);

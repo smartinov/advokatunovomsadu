@@ -42,7 +42,14 @@ export const COURTS = [
 
 export const ACTIONS = [
   { id: "tuzba", label: "Tužba ili protivtužba", factor: 1, share: "cela taksa", basis: "Tarifni broj 1" },
-  { id: "platni-nalog", label: "Tužba sa predlogom za platni nalog", factor: 1 / 2, share: "polovina takse", basis: "Tarifni broj 1, napomena 2" },
+  {
+    id: "platni-nalog",
+    label: "Tužba sa predlogom za platni nalog",
+    // Half for the claim plus half for the payment order decision, both due on filing.
+    factor: 1,
+    share: "polovina za tužbu i polovina za rešenje o platnom nalogu, obe pri podnošenju",
+    basis: "Tarifni broj 1, napomena 2; Tarifni broj 2 st. 4 i napomena 8",
+  },
   { id: "odgovor", label: "Odgovor na tužbu", factor: 1 / 2, share: "polovina takse", basis: "Tarifni broj 1 st. 3" },
   { id: "presuda", label: "Prvostepena presuda", factor: 1, share: "cela taksa", basis: "Tarifni broj 2 st. 1" },
   { id: "presuda-polovina", label: "Presuda zbog propuštanja, na osnovu priznanja ili odricanja", factor: 1 / 2, share: "polovina takse", basis: "Tarifni broj 2 st. 2" },
