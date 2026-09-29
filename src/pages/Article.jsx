@@ -1,32 +1,12 @@
-import { useEffect, useRef } from "react";
 import { articles } from "../content";
 import { href } from "../components/Layout";
 import { ArticleCard, readingMinutes } from "./Articles";
 
-function ReadingProgress() {
-  const bar = useRef(null);
-  useEffect(() => {
-    const update = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      bar.current.style.transform = `scaleX(${total > 0 ? Math.min(1, window.scrollY / total) : 0})`;
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-  return (
-    <div className="progress" aria-hidden="true">
-      <div className="progress-bar" ref={bar} />
-    </div>
-  );
-}
-
-export function Article({ slug }) {
-  const a = articles.find((x) => x.slug === slug);
-  const others = articles.filter((x) => x.slug !== slug).slice(0, 3);
+export function Article({ article: a }) {
+  const others = articles.filter((x) => x !== a).slice(0, 3);
   return (
     <article>
-      <ReadingProgress />
+      <div className="progress" aria-hidden="true" />
       <header className="page-hero">
         <div className="container">
           <nav className="breadcrumb" aria-label="Putanja">

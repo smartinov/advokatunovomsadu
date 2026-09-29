@@ -1,5 +1,5 @@
 import { SITE, routes } from "./routes";
-import { articles, office, team } from "./content";
+import { office, team } from "./content";
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -62,7 +62,7 @@ function breadcrumbs(items) {
 function structuredData(route) {
   if (route.page === "home") return [firm()];
   if (route.page === "article") {
-    const a = articles.find((x) => x.slug === route.slug);
+    const a = route.article;
     return [
       {
         "@context": "https://schema.org",
@@ -90,7 +90,6 @@ export function renderHead(route, { base, preview }) {
     route.noindex ? "" : `<link rel="canonical" href="${url}" />`,
     `<link rel="icon" href="${base}favicon.ico" sizes="any" />`,
     `<link rel="apple-touch-icon" href="${base}logo192.png" />`,
-    `<link rel="manifest" href="${base}manifest.json" />`,
     `<meta property="og:type" content="${route.page === "article" ? "article" : "website"}" />`,
     `<meta property="og:locale" content="sr_RS" />`,
     `<meta property="og:site_name" content="Advokati Novi Sad" />`,

@@ -3,9 +3,8 @@ import { ACTIONS, COURTS, LAW, VERIFIED_ON, courtFee } from "../taksa";
 import { href } from "../components/Layout";
 
 const rsd = (n) => new Intl.NumberFormat("sr-RS").format(n);
-const parseRsd = (s) => Number(String(s).replace(/[^\d]/g, "")) || 0;
-const FACTOR_LABEL = { 1: "cela taksa", 0.5: "polovina takse", 2: "dvostruka taksa" };
-const factorLabel = (f) => FACTOR_LABEL[f] ?? "trećina takse";
+// Serbian formatting: "." groups thousands, "," starts decimals, which a fee on whole dinars ignores.
+const parseRsd = (s) => Number(String(s).split(",")[0].replace(/\D/g, "")) || 0;
 
 export function Calculator() {
   const [court, setCourt] = useState("opsti");
@@ -104,9 +103,9 @@ export function Calculator() {
                 </div>
                 <div>
                   <dt>
-                    {r.action.label}: {factorLabel(r.factor)} ({r.action.basis})
+                    {r.action.label}: {r.action.share} ({r.action.basis})
                   </dt>
-                  <dd>× {r.factor === 1 / 3 ? "1/3" : r.factor === 0.5 ? "1/2" : r.factor}</dd>
+                  <dd>× {r.action.factor === 1 / 3 ? "1/3" : r.action.factor === 1 / 2 ? "1/2" : r.action.factor}</dd>
                 </div>
                 <div className="total">
                   <dt>Ukupno</dt>

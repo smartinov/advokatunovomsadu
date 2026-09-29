@@ -1,8 +1,12 @@
-import "@fontsource/raleway/400.css";
-import "@fontsource/raleway/500.css";
-import "@fontsource/raleway/600.css";
-import "@fontsource/playfair-display/400.css";
-import "@fontsource/playfair-display/400-italic.css";
+// Latin subsets only: the site is Serbian Latin.
+import "@fontsource/raleway/latin-400.css";
+import "@fontsource/raleway/latin-ext-400.css";
+import "@fontsource/raleway/latin-600.css";
+import "@fontsource/raleway/latin-ext-600.css";
+import "@fontsource/playfair-display/latin-400.css";
+import "@fontsource/playfair-display/latin-ext-400.css";
+import "@fontsource/playfair-display/latin-400-italic.css";
+import "@fontsource/playfair-display/latin-ext-400-italic.css";
 import "./styles/site.css";
 import "./styles/pages.css";
 import { Layout, href } from "./components/Layout";
@@ -33,7 +37,7 @@ export default function App({ route }) {
   const Page = PAGES[route.page];
   return (
     <Layout page={route.page}>
-      <Page slug={route.slug} />
+      <Page article={route.article} />
     </Layout>
   );
 }

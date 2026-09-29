@@ -5,10 +5,9 @@ import { formatPhone } from "../components/Layout";
 function onSubmit(e) {
   e.preventDefault();
   const f = new FormData(e.currentTarget);
-  const to = team.find((m) => m.slug === f.get("to"));
   const subject = `Upit sa sajta: ${f.get("name")}`;
-  const body = [f.get("message"), "", `${f.get("name")}`, f.get("phone")].filter((x) => x !== null).join("\n");
-  window.location.href = `mailto:${to.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const body = [f.get("message"), "", f.get("name"), f.get("phone")].join("\n").trim();
+  window.location.href = `mailto:${f.get("to")}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 export function Contact() {
@@ -57,7 +56,7 @@ export function Contact() {
             </label>
             <select id="to" name="to" className="select">
               {team.map((m) => (
-                <option key={m.slug} value={m.slug}>
+                <option key={m.slug} value={m.email}>
                   {m.name}
                 </option>
               ))}

@@ -20,7 +20,7 @@ export const routes = [
   ...articles.map((a) => ({
     path: `/tekstovi/${a.slug}/`,
     page: "article",
-    slug: a.slug,
+    article: a,
     title: `${a.title} | Advokati Novi Sad`,
     description: a.lede,
   })),

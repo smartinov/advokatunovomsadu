@@ -23,14 +23,15 @@ export const office = {
 export const team = [
   {
     "slug": "davor-maric",
+    "summary": "U imeniku Advokatske komore Vojvodine od 2017. Sertifikati za maloletnike, medijaciju i zaštitu od nasilja u porodici. Govori engleski, služi se ruskim.",
     "name": "Davor Marić",
     "title": "Advokat",
     "img": davor,
     "email": "adv.davormaric@gmail.com",
     "phone": "+381637457275",
     "bio": [
-      "Advokat Davor Marić je rođen 1989. godine u Sarajevu. Nakon završene Gimnazije „Jovan Jovanović Zmaj“ u Novom Sadu upisuje Pravni Fakultet Univerziteta u Novom Sadu 2008. Godine – smer opšti, na kojem i diplomira 08.02.2013. godine.",
-      "Pripravničku vežbu je obavljao u u advokatskoj kancelariji od 2013. godine do 2016. godine",
+      "Advokat Davor Marić je rođen 1989. godine u Sarajevu. Nakon završene Gimnazije „Jovan Jovanović Zmaj“ u Novom Sadu upisuje Pravni fakultet Univerziteta u Novom Sadu 2008. godine – smer opšti, na kojem i diplomira 08.02.2013. godine.",
+      "Pripravničku vežbu je obavljao u advokatskoj kancelariji od 2013. godine do 2016. godine",
       "Zvanje Master pravnika stiče 2014. godine nakon što je odbranio završni master rad na temu „Pozitivne obaveze država u pogledu zaštite prava na život“ na Pravnom fakultetu Univerziteta u Novom Sadu.",
       "Pravosudni ispit je položio 2016. godine.",
       "Advokatski ispit je položio 2016. godine.",
@@ -41,6 +42,7 @@ export const team = [
   },
   {
     "slug": "milan-nedic",
+    "summary": "U imeniku Advokatske komore Vojvodine od 2015. Pripravnički staž u Osnovnom sudu u Novom Sadu, u istražnoj, krivičnoj i parničnoj referadi.",
     "name": "Milan Nedić",
     "title": "Advokat",
     "img": milan,
@@ -53,6 +55,7 @@ export const team = [
   },
   {
     "slug": "dijana-biro",
+    "summary": "Sopstvenu advokatsku kancelariju osniva 2019. Pripravnički staž u Višem sudu u Novom Sadu, uključujući odeljenje za maloletnike.",
     "name": "Dijana Biro",
     "title": "Advokat",
     "img": dijana,
@@ -68,19 +71,19 @@ export const team = [
 export const values = [
   {
     "title": "Nezavisno",
-    "desc": "u skladu sa svojim uverenjima, zasnovanim na pozitivnom pravu, pravnoj nauci i praksi, međunarodnim pravnim standardima, statutu i Kodeksu"
+    "desc": "U skladu sa svojim uverenjima, zasnovanim na pozitivnom pravu, pravnoj nauci i praksi, međunarodnim pravnim standardima, statutu i Kodeksu."
   },
   {
     "title": "Stručno",
-    "desc": "sa znanjem za koje smo stekli kvalifikacije i sa višegodišnjim iskustvom u pravosuđu i drugim granama prava"
+    "desc": "Sa znanjem za koje smo stekli kvalifikacije i sa višegodišnjim iskustvom u pravosuđu i drugim granama prava."
   },
   {
     "title": "Savesno",
-    "desc": "pri čemu vodimo računa da zastupanje bude brižljivo, marljivo, odlučno i blagovremeno. Bez odlaganja ukazujemo na sve povrede prava i druga kršenja zakona na štetu klijenata. Interese klijenata stavljamo ispred sopstvenih interesa, interesa drugih učesnika u postupku i trećih lica."
+    "desc": "Vodimo računa da zastupanje bude brižljivo, marljivo, odlučno i blagovremeno. Bez odlaganja ukazujemo na sve povrede prava i druga kršenja zakona na štetu klijenata. Interese klijenata stavljamo ispred sopstvenih interesa, interesa drugih učesnika u postupku i trećih lica."
   },
   {
     "title": "Objektivno i odgovorno",
-    "desc": "gde u svakom pojedinačnom predmetu klijenta obavestimo potpuno, otvoreno i iskreno o pravnoj oceni slučaja, proceni izgleda za uspeh i izvršavanju ili neizvršavanju svojih obaveza"
+    "desc": "U svakom pojedinačnom predmetu klijenta obaveštavamo potpuno, otvoreno i iskreno o pravnoj oceni slučaja, proceni izgleda za uspeh i izvršavanju ili neizvršavanju svojih obaveza."
   }
 ];
 
@@ -371,10 +374,3 @@ export const articles = [
     ]
   }
 ];
-
-// One-line summaries, each fact taken from the bio above.
-export const teamSummary = {
-  "davor-maric": "U imeniku Advokatske komore Vojvodine od 2017. Sertifikati za maloletnike, medijaciju i zaštitu od nasilja u porodici. Govori engleski, služi se ruskim.",
-  "milan-nedic": "U imeniku Advokatske komore Vojvodine od 2015. Pripravnički staž u Osnovnom sudu u Novom Sadu, u istražnoj, krivičnoj i parničnoj referadi.",
-  "dijana-biro": "Sopstvenu advokatsku kancelariju osniva 2019. Pripravnički staž u Višem sudu u Novom Sadu, uključujući odeljenje za maloletnike.",
-};
