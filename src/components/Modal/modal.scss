@@ -1,0 +1,195 @@
+@import "../../styles/variables";
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(2px);
+
+  @include breakpoint {
+    padding: 5rem 2.5rem;
+  }
+}
+
+.c-modal {
+  width: clamp(50%, 64rem, 90%);
+  margin: auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  box-shadow: -0.9375rem 0.9375rem 2.25rem rgb(0 0 0 / 25%);
+  max-height: 90vh;
+
+  &.c-modal--article {
+    flex-direction: column;
+    overflow: hidden;
+
+    .c-modal-img {
+      width: 100%;
+      max-height: 40vh;
+
+      @include breakpoint {
+        max-height: 100%;
+      }
+    }
+
+    .c-modal-text-container {
+      min-height: 0;
+      max-height: 60%;
+    }
+  }
+
+  &.c-modal--short {
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 25rem;
+    height: fit-content;
+    max-height: 80vh;
+
+    .c-modal-img {
+      position: relative;
+      width: 100%;
+      max-height: 30vh;
+
+      @include breakpoint {
+        max-height: 20vh;
+      }
+    }
+
+    .c-modal-text-container {
+      min-height: 0;
+      height: fit-content;
+      max-height: 100%;
+
+      @include breakpoint {
+        margin-top: auto;
+        max-height: 40%;
+        overflow-y: auto;
+        background: $gradientGreen;
+      }
+    }
+  }
+
+  @include breakpoint {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.c-modal-img {
+  flex: 1;
+  width: 25rem;
+  object-fit: cover;
+  pointer-events: none;
+  touch-action: none;
+  
+  &.c-modal-img__short {
+    padding: 2rem;
+    background: $alabaster;
+    object-position: center;
+    object-fit: contain;
+  }
+
+  @include breakpoint {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute; 
+  }
+}
+
+.c-modal-text-container {
+  position: relative;
+  padding: 2.5rem;
+  background: $gradientGreen;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  @include breakpoint {
+    margin-top: auto;
+    max-height: 40%;
+    overflow-y: auto;
+    background: $gradientGreenTransparent;
+  }
+}
+
+.c-modal-title {
+  font-size: 2rem;
+  color: $alabaster;
+}
+
+.c-modal-subtitle {
+  font-size: 1.2rem;
+  color: $alabaster;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    display: inline-block;
+    content: "";
+    background-image: url('../../assets/images/divider.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 6.25rem;
+    height: 1.25rem;
+    margin-left: -2.5rem;
+    transform: rotate(180deg);
+  }
+}
+
+.c-modal-desc {
+  color: $alabaster;
+  overflow: auto;
+  max-height: 100%;
+  white-space: pre-line;
+  text-align: justify;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.c-ornament-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%) translateY(-50%);
+  width: 12.5rem;
+}
+
+.c-ornament-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(50%) translateY(50%);
+  width: 12.5rem;
+}
+
+.c-close-button {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: .9375rem;
+  right: .9375rem;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+
+  &:focus-visible {
+    outline: 2px solid $copper;
+  }
+}
+
+.c-close-icon {
+  width: 100%;
+  height: 100%;
+}

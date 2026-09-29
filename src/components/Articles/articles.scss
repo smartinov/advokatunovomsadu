@@ -1,0 +1,71 @@
+@import "../../styles/variables";
+
+.c-our-work {
+  color: $alabaster;
+  margin: 7.5rem 0 0 15.625rem;
+  padding: 5rem 15.625rem 5rem 5rem;
+  background: $gradientGreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: -0.9375rem .9375rem 2.25rem rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  position: relative;
+
+  .c-divider {
+    color: $copper;
+  }
+
+  .ornament16 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-50%) translateY(50%);
+  }
+
+  @include breakpoint {
+    margin: 6.2rem 0 0;
+    padding: 5rem 2rem;
+  }
+}
+
+.c-out-work__heading {
+  text-align: center;
+  font-size: 3rem;
+  line-height: 4rem;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+
+  @include breakpoint {
+    overflow-x: hidden;
+  }
+
+  .ornament15 {
+    position: absolute;
+    top: -2rem;
+    right: -4rem;
+    z-index: 0;
+    width: 9.375rem;
+  }
+}
+
+.c-our-work__content-holder {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(20rem, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+
+  &:has(.c-work-card.c-work-card--open) .c-work-card:not(.c-work-card.c-work-card--open) {
+    opacity: .25;
+  }
+
+  @include breakpoint {
+    grid-template-columns: 25rem;
+    grid-auto-rows: minmax(25rem, 25rem);
+  }
+}
