@@ -10,9 +10,16 @@ for (const marker of ["<!--app-head-->", '<div id="root"></div>']) {
   if (!template.includes(marker)) throw new Error(`dist/index.html: missing ${marker}`);
 }
 
+// Every page uses all the self-hosted fonts; preloading them avoids a visible fallback-font swap on each navigation.
+const fontPreloads = fs
+  .readdirSync("dist/assets")
+  .filter((f) => f.endsWith(".woff2"))
+  .map((f) => `<link rel="preload" href="${base}assets/${f}" as="font" type="font/woff2" crossorigin />`)
+  .join("\n    ");
+
 const page = (route) =>
   template
-    .replace("<!--app-head-->", renderHead(route, { base, preview }))
+    .replace("<!--app-head-->", `${fontPreloads}\n    ${renderHead(route, { base, preview })}`)
     .replace('<div id="root"></div>', `<div id="root">${render(route)}</div>`);
 
 for (const route of routes) {
