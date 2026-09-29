@@ -38,7 +38,7 @@ export function Article({ article: a }) {
           ))}
           <aside className="cta-card" aria-labelledby="cta-title">
             <h2 id="cta-title">Treba vam pravni savet?</h2>
-            <p>Svaki predmet je drugačiji. Pozovite ili pišite advokatu i dogovorite sastanak u kancelariji.</p>
+            <p>Za savet o svom predmetu pozovite advokata ili mu pišite i dogovorite sastanak u kancelariji.</p>
             <a href={href("/kontakt/")} className="btn btn-primary">
               Kontakt advokata
             </a>

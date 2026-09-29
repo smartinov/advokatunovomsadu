@@ -23,7 +23,7 @@ export const office = {
 export const team = [
   {
     "slug": "davor-maric",
-    "summary": "U imeniku Advokatske komore Vojvodine od 2017. Sertifikati za maloletnike, medijaciju i zaštitu od nasilja u porodici. Govori engleski, služi se ruskim.",
+    "summary": "U imeniku Advokatske komore Vojvodine od 2017. Poseduje sertifikate za odbranu maloletnih učinilaca i zastupanje maloletnih oštećenih, za zastupanje klijenata u medijaciji i za pravnu zaštitu od nasilja u porodici. Govori engleski, služi se ruskim.",
     "name": "Davor Marić",
     "title": "Advokat",
     "img": davor,
@@ -114,7 +114,7 @@ export const fields = [
   },
   {
     "title": "Upravno pravo",
-    "desc": "Pružamo pravnu pomoć zastupanja i savetovanja u pravnim stvarima u postupcima pred svim organima uprave kao što su Poreska uprava, Uprave carina i drugih republičkih, pokrajinskih ili lokalnih organa uprave."
+    "desc": "Pružamo pravnu pomoć kroz zastupanje i savetovanje u postupcima pred svim organima uprave, uključujući Poresku upravu, Upravu carina i druge republičke, pokrajinske ili lokalne organe uprave."
   },
   {
     "title": "Postupak naplate potraživanja",
@@ -186,7 +186,7 @@ export const articles = [
     "slug": "akusersko-nasilje",
     "title": "Akušersko nasilje",
     "tag": "Krivično pravo",
-    "lede": "Pravna zaštita žena koje su tokom porođaja pretrpele psihičko ili fizičko nasilje: krivična odgovornost, parnični postupak i pravo na naknadu štete.",
+    "lede": "O krivičnoj odgovornosti za psihičko ili fizičko nasilje tokom porođaja i pravu žene da u parničnom postupku traži naknadu štete.",
     "img": image9,
     "body": [
       "Poslednjih dana zbog tragedije koja je zadesila jednu porodicu u Srbiji pojavila se kao aktuelna tema tzv. akušersko nasilje. Iako je mnogo žena pretrpelo ovakav vid nasilja, u većini slučajeva iste nisu odlučivale da se upuste u sudske procese što zbog odbijanja da se ponovo suoče sa već pretrpljenom traumom, što zbog bojazni da će ih sistem izneveriti. Kako naša advokatska kancelarija smatra da je tema tzv. akušerskog nasilja zaista bitna, odlučili smo da joj se posvetimo i u neku ruku ukažemo na to koliko je neophodno prijaviti svaki vid nasilja što zbog zaštite samog pojedinca, što zbog celokupnog društva kako bi se sprečio ponovni vid bilo kakvog nasilja učinjenog prema drugoj ženi, detetu, porodici.",
@@ -221,7 +221,7 @@ export const articles = [
     "slug": "naplata-duga-faktura",
     "title": "Naplata duga po osnovu računa (faktura)",
     "tag": "Privredno pravo",
-    "lede": "Od opomene do prinudne naplate: koraci u naplati potraživanja na osnovu računa i fakture.",
+    "lede": "Kako se dug po računu ili fakturi naplaćuje, od pisane opomene do prinudne naplate.",
     "img": image5,
     "body": [
       "Naplata potraživanja po osnovu računa ili faktura za isporučene proizvode ili pruženu uslugu predstavlja u nekim situacijama problem za svako lice koje se bavi prodajom ili pružanjem usluga. Republika Srbija ima određene propise koji regulišu ovu oblast i pružaju okvir za efikasnu naplatu potraživanja.",
@@ -246,7 +246,7 @@ export const articles = [
       "Prema Zakonu o radu, poslodavac može prekinuti radni odnos samo u određenim situacijama koje su predviđene zakonom. Poslodavac je dužan da poštuje propisane procedure i pruži zaposlenom pravnu zaštitu.",
       "Ukoliko poslodavac prekine radni odnos na nezakonit način, zaposleni ima pravo da pokrene postupak za zaštitu svojih prava. Prvi korak je često pokušaj rešavanja spora kroz mirno i pregovaračko rešenje, kao što je razgovor sa poslodavcem ili posredovanje nadležnih organa. Ukoliko se ne postigne sporazum, zaposleni može pokrenuti radni spor pred nadležnim sudom.",
       "Moramo napomenuti da je zakonom predviđen rok u kojem mora da se pokrene sudski postupak radi poništaja nezakonitog otkaza. Taj rok iznosi 60 dana od dana prijema rešenja o otkazu ugovora o radu. U slučaju da zaposleni u roku od 60 dana od dana prijema rešenja o otkazu ugovora o radu ne pokrene odgovarajući sudski postupak radi poništaja otkaza ugovora o radu, zaposleni gubi pravo na sudsku zaštitu.",
-      "U sudskom postupku Sud razmatra sve relevantne činjenice i dokaze u vezi sa otkazom i donosu odluku na osnovu utvrđenih činjeica u skladu sa zakonom. Ukoliko sud utvrdi da je otkaz bio nezakonit, poslodavac može da ima obavezu vraćanja zaposlenog na posao, isplatu odgovarajuće nadoknade za izgubljenu zaradu tokom nezakonitog otkaza, kao i druge pravne ili finansijske obaveze.",
+      "U sudskom postupku sud razmatra sve relevantne činjenice i dokaze u vezi sa otkazom i donosi odluku na osnovu utvrđenih činjenica, u skladu sa zakonom. Ukoliko sud utvrdi da je otkaz bio nezakonit, poslodavac može da ima obavezu vraćanja zaposlenog na posao, isplate odgovarajuće naknade za izgubljenu zaradu tokom nezakonitog otkaza, kao i druge pravne ili finansijske obaveze.",
       "Važno je napomenuti da je svaki slučaj nezakonitog otkaza jedinstven i zahteva individualnu procenu u skladu sa konkretnim okolnostima. Konsultacija sa advokatom specijalizovanim za radno pravo može biti od velike koristi kako bi se ostvarila prava zaposlenog i zaštitilo od nezakonitog postupanja poslodavca."
     ]
   },
@@ -272,7 +272,7 @@ export const articles = [
     "slug": "naknada-stete-povreda-na-radu",
     "title": "Naknada štete u slučaju povrede na radu",
     "tag": "Radno pravo",
-    "lede": "Prijava povrede, lečenje, naknada za privremenu sprečenost za rad i naknada nematerijalne štete.",
+    "lede": "Kako se prijavljuje povreda na radu i kako zaposleni ostvaruje pravo na lečenje, naknadu za vreme privremene sprečenosti za rad i naknadu nematerijalne štete.",
     "img": image4,
     "body": [
       "Naknada štete u slučaju povrede na radu predstavlja pravo radnika da zahteva nadoknadu za štetu koju je pretrpeo usled povrede ili bolesti nastale na radu ili u vezi sa radom. Ovo pravo je regulisano Zakonom o radu Republike Srbije, Zakonom o zdrastvenom osiguranju Republike Srbije, Zakonom o bezbednosti i zdravlju na radu i drugim pozitivnim propisima.",
@@ -289,11 +289,11 @@ export const articles = [
     "slug": "osnivanje-firme",
     "title": "Osnivanje firme",
     "tag": "Privredno pravo",
-    "lede": "Od izbora pravne forme do registracije u APR-u: koraci pri osnivanju privrednog društva.",
+    "lede": "Kako se osniva firma, od izbora pravne forme do registracije u APR-u.",
     "img": image6,
     "body": [
       "Osnivanje firme predstavlja proces registracije pravnog lica koji ima za cilj obavljanje određene privredne delatnosti i ostvarivanje poslovnih aktivnosti. Ovaj proces uključuje nekoliko koraka i zahteva poštovanje zakonskih propisa i procedura.",
-      "Naš savet je da pre osnivanja firme detaljno proverite propise koje regulišu oblast u kojoj će firma da posluje, da istražite tržište analizirate konkurenciju, pripremite poslovni plan i obezbediti neophodne resurse i kapital za pokretanje poslovanja.",
+      "Naš savet je da pre osnivanja firme detaljno proverite propise koji regulišu oblast u kojoj će firma poslovati, istražite tržište, analizirate konkurenciju, pripremite poslovni plan i obezbedite neophodne resurse i kapital za pokretanje poslovanja.",
       "Nakon toga, sledeći korak u osnivanju firme je odabir pravne forme preduzeća. U Republici Srbiji postoje različite pravne forme, kao što su društvo sa ograničenom odgovornošću (DOO), akcionarsko društvo (AD), preduzetnik, itd. Ova odluka zavisi od vrste poslovanja kojom žeite da se bavite, ciljeva koje želite da ostvarite, kapitala kojim raspolažete i drugih faktora.",
       "Važno je napomenuti da svaka forma organizovanja firme nosi određene prednosti i mane, koje morate imati u vidu prilikom odlučivanja o izboru pravne forme u kojoj želite da bude vaša firma. Kada odaberete pravnu formu u kojoj ćete da poslujete sa budućom firmom, sledi registracija firme u Agenciji za privredne registre (APR).Zahtev za registraciju podnosi se elektronski i obuhvata prikupljanje potrebne dokumentacije, kao što su statut preduzeća, osnivački akt, rešenje o imenovanju direktora ili zastupnika, izjava o prihvatanju funkcije direktora/zastupnika, itd. Takođe, potrebno je uplatiti odgovarajuće takse i naknade za registraciju.",
       "Uz registraciju u APR-u, često je potrebno i ishodovanje drugih dozvola i dozvoljenih dokumenata, u zavisnosti od vrste delatnosti kojom želite da se buduća firma bavi. Na primer, za određene delatnosti može biti potrebna posebna dozvola, poput dozvole za obavljanje medicinske delatnosti ili dozvole za trgovinu određenom robom. Takođe, prilikom osnivanja firme, potrebno je otvoriti poslovni račun kod banke, kao i voditi računovodstvo i izveštavati nadležne organe o finansijskom stanju preduzeća.",
@@ -308,7 +308,7 @@ export const articles = [
     "lede": "Šta se smatra nasiljem u porodici, ko su članovi porodice u smislu zakona i koje mere zaštite postoje.",
     "img": image7,
     "body": [
-      "Kada se govori o nasilju u porodici najčešća pomisao je fizičko nasilje jednog člana porodice nad drugim članom. Međutim, bitno je napomenuti da se pod nasiljem u porodici, a u smislu Porodičnog zakona, podrazumeva svako ponašanje kojim jedan član porodice ugrožava telesni integritet, duševno zdravlje ili spokojstvo drugog člana porodice. Dakle, pod nasiljem u porodici podrazumeva se, pored nanošenja ili pokušaja nanošenja telesnih povreda, i izazivanje straha pretnjom ubistva ili nanošenja telesnih povreda članu porodice ili njemu bliskom licu, prisiljavanje na seksualni odnos, navođenje na seksualni odnos ili seksualni odnos sa licem koje nije navršilo 14 godina života ili nemoćnim lice, ograničavanje slobode kretanje ili komuniciranja sa trećim licima, vređanje, kao i svako drugo drsko, bezobzirno i zlonamerno ponašanje.",
+      "Kada se govori o nasilju u porodici, najčešća pomisao je fizičko nasilje jednog člana porodice nad drugim članom. Međutim, bitno je napomenuti da se pod nasiljem u porodici, a u smislu Porodičnog zakona, podrazumeva svako ponašanje kojim jedan član porodice ugrožava telesni integritet, duševno zdravlje ili spokojstvo drugog člana porodice. Dakle, pod nasiljem u porodici podrazumeva se, pored nanošenja ili pokušaja nanošenja telesnih povreda, i izazivanje straha pretnjom ubistva ili nanošenja telesnih povreda članu porodice ili njemu bliskom licu, prisiljavanje na seksualni odnos, navođenje na seksualni odnos ili seksualni odnos sa licem koje nije navršilo 14 godina života ili nemoćnim licem, ograničavanje slobode kretanja ili komuniciranja sa trećim licima, vređanje, kao i svako drugo drsko, bezobzirno i zlonamerno ponašanje.",
       "Pod članovima porodice ne smatraju se samo supružnici, deca, roditelji i ostali krvni srodnici kao što većina misli, već i bivši supružnici, lica u tazbinskom ili adoptivnom srodstvu, odnosno lica koja vezuje hraniteljstvo, lica koja žive ili su živela u istom porodičnom domaćinstvu, kao i vanbračni ili bivši vanbračni partneri i lica koja su međusobno bila ili su još uvek u emotivnoj ili seksualnoj vezi, odnosno koja imaju zajedničko dete ili je dete na putu da bude rođeno, iako nikad nisu živela u istom porodičnom domaćinstvu.",
       "Dakle, sva nabrojana lica čine članove porodice u smislu Porodičnog zakona i ista su jedna od drugih zaštićena od nasilja u porodici, odnosno ista mogu odgovarati za krivično delo nasilje u porodici. Ukoliko trpite bilo koji vid nasilja u porodici prijavite policiji/javnom tužiocu ili kontaktirajte nas kako bismo to učinili umesto Vas i kako bismo vam pružili potrebnu pravnu zaštitu.",
       "Pored podnošenja krivične prijave protiv lica koje vrši nasilje u porodice, može se voditi i parnični postupak radi zaštite od nasilja u porodici.",
@@ -320,7 +320,7 @@ export const articles = [
       "- zabrana pristupa u prostor oko mesta stanovanja ili mesta rada člana porodice;",
       "- zabrana daljeg uznemiravanja člana porodice.",
       "Ukoliko Vam je radi zaštite od nasilja u porodici neophodno određivanje neke od nabrojanih mera, naš tim advokata Vam može pomoći da takvu zaštitu ishodujete.",
-      "Mera zaštite od nasilja u porodici može trajati najviše godinu dana, s tim što se može produžavati sve dok ne prestanu razlozi zbog određena.",
+      "Mera zaštite od nasilja u porodici može trajati najviše godinu dana, s tim što se može produžavati sve dok ne prestanu razlozi zbog kojih je određena.",
       "Takođe, mera zaštite od nasilja u porodici može prestati pre isteka vremena trajanja ako prestanu razlozi zbog kojih je mera bila određena.",
       "Postupak nakon prijave nasilja u porodici:",
       "Zakonom o sprečavanju nasilja u porodici propisan je način postupanja svakog organa nakon prijave.",
@@ -338,7 +338,7 @@ export const articles = [
     "slug": "razvod-braka",
     "title": "Razvod braka",
     "tag": "Porodično pravo",
-    "lede": "Sporazumni razvod i razvod po tužbi: vršenje roditeljskog prava, izdržavanje deteta i podela zajedničke imovine.",
+    "lede": "Kako se brak razvodi sporazumno ili po tužbi, kako se uređuju vršenje roditeljskog prava i izdržavanje deteta i kako se deli zajednička imovina.",
     "img": image8,
     "body": [
       "Brak je u Republici Srbiji regulisan Porodičnim zakonom, i to kao zakonom uređena zajednica života žene i muškarca koji se može sklopiti samo na osnovu slobodnog pristanka budućih supružnika.",
@@ -359,7 +359,7 @@ export const articles = [
       "Sporazumom se roditelji mogu opredeliti i na mogućnost da se jednom roditelju poveri vršenje roditeljskog prava, a koji sporazum mora obuhvatiti i sporazum o visini doprinosa za izdržavanje deteta od drugog roditelja sa kojim dete ne živi, kao i sporazum o načinu održavanja ličnih odnosa deteta i roditelja sa kojim dete ne živi. Drugi roditelj kom nije povereno samostalno vršenje roditeljskog prava svakako ima pravo da o pitanjima koja bitno utiču na život deteta odlučuje zajednički i sporazumno sa roditeljem koji vrši roditeljsko pravo.",
       "Pitanja koja bitno utiču na život deteta, u smislu Porodičnog zakona, smatraju se naročito: obrazovanje deteta, preduzimanje većih medicinskih zahvata nad detetom, promena prebivališta deteta i raspolaganje imovinom deteta velike vrednosti.",
       "b) Sporazum o deobi zajedničke imovine",
-      "Imovina koju su supružnici stekli radom u toku trajanja zajednice života u braku predstavlja njihovu zajedničku imovinu, osim ako bračnim ugovorom nije uređeno drugačije. U sporazumu je neophodno priložiti dokaze o imovini koja je predmet deobe. Predmeti manje vrednosti kao što su pokućstva, lične stvari, nameštaj itd. može se faktički podeliti, bez njihovog preciziranja u samom sporazumu. Kada se sastavlja sporazum o deobi zajedničke imovine mogu se uzeti u obzir eventualno veća ulaganja jednog supružnika u uvećanju zajedničke imovine od drugog, visina prihoda supružnika, vođenja domaćinstva i staranje o deci, a kako bi se ista podelila na najpravičniji način.",
+      "Imovina koju su supružnici stekli radom u toku trajanja zajednice života u braku predstavlja njihovu zajedničku imovinu, osim ako bračnim ugovorom nije uređeno drugačije. Uz sporazum je neophodno priložiti dokaze o imovini koja je predmet deobe. Predmeti manje vrednosti, kao što su pokućstvo, lične stvari, nameštaj itd., mogu se faktički podeliti bez njihovog preciziranja u samom sporazumu. Kada se sastavlja sporazum o deobi zajedničke imovine mogu se uzeti u obzir eventualno veća ulaganja jednog supružnika u uvećanje zajedničke imovine u odnosu na drugog, visina prihoda supružnika, vođenje domaćinstva i staranje o deci, a kako bi se ista podelila na najpravičniji način.",
       "Ukoliko se ne postigne sporazum o deobi bračne imovine, svaki bračni supružnik ima pravo da pokrene poseban postupak radi deobe zajedničke imovine u kojoj bi se utvrđivao suvlasnički udeo supružnika u zajedničkoj imovini. Naš tim advokata Vam može pomoći prilikom sastavljanja sporazuma o deobi zajedničke imovine ili eventalnog pokretanja pomenutog postupka radi sudske deobe. Pretpostavlja se da su udeli supružnika u zajedničkoj imovini jednaki.",
       "Međutim u postupku pred sudom se može dokazivati da je udeo jednog supružnika u sticanju zajedničke imovine veći ukoliko je isti ostvario veće prihode, imao veću ulogu u vođenju poslova domaćinstva, staranja o deci, staranja o imovini, itd.",
       "Iako se Sud ne meša u deobu bračne imovine kad o istoj postoji sporazum supružnika, svakako ima pravo da se meša u sporazum o vršenju roditeljskog prava jer je neophodno da se isti donese u najboljem interesu deteta. Upravo zbog toga je neophodno precizirati sve detalje vezane za vršenje roditeljskog prava kako bi se izbegle nesuglasice bivših partnera oko bitnih pitanja.",

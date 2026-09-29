@@ -13,7 +13,7 @@ export const routes = [
   {
     path: "/tekstovi/",
     page: "articles",
-    title: "Stručni pravni tekstovi | Advokati Novi Sad",
+    title: "Stručni pravni tekstovi | Advokati u Novom Sadu",
     description:
       "Tekstovi advokata iz Novog Sada o razvodu braka, nasilju u porodici, otkazu ugovora o radu, naknadi štete, naplati duga i osnivanju firme.",
   },
@@ -21,13 +21,13 @@ export const routes = [
     path: `/tekstovi/${a.slug}/`,
     page: "article",
     article: a,
-    title: `${a.title} | Advokati Novi Sad`,
+    title: `${a.title} | Advokati u Novom Sadu`,
     description: a.lede,
   })),
   {
     path: "/sudska-taksa/",
     page: "calculator",
-    title: "Kalkulator sudske takse | Advokati Novi Sad",
+    title: "Kalkulator sudske takse | Advokati u Novom Sadu",
     description:
       "Izračunajte sudsku taksu za tužbu, presudu, žalbu, reviziju ili predlog za izvršenje prema Taksenoj tarifi Zakona o sudskim taksama.",
   },
@@ -43,7 +43,7 @@ export const routes = [
 export const notFound = {
   path: "/404.html",
   page: "notfound",
-  title: "Stranica nije pronađena | Advokati Novi Sad",
+  title: "Stranica nije pronađena | Advokati u Novom Sadu",
   description: "Tražena stranica ne postoji.",
   noindex: true,
 };
