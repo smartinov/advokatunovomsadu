@@ -15,6 +15,7 @@ import { Articles } from "./pages/Articles";
 import { Article } from "./pages/Article";
 import { Calculator } from "./pages/Calculator";
 import { Contact } from "./pages/Contact";
+import { Faq } from "./pages/Faq";
 
 function NotFound() {
   return (
@@ -31,7 +32,7 @@ function NotFound() {
   );
 }
 
-const PAGES = { home: Home, articles: Articles, article: Article, calculator: Calculator, contact: Contact, notfound: NotFound };
+const PAGES = { home: Home, articles: Articles, article: Article, calculator: Calculator, contact: Contact, faq: Faq, notfound: NotFound };
 
 export default function App({ route }) {
   const Page = PAGES[route.page];

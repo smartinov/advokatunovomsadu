@@ -32,6 +32,13 @@ export const routes = [
       "Izračunajte sudsku taksu za tužbu, presudu, žalbu, reviziju ili predlog za izvršenje prema Taksenoj tarifi Zakona o sudskim taksama.",
   },
   {
+    path: "/cesta-pitanja/",
+    page: "faq",
+    title: "Česta pitanja | Advokati u Novom Sadu",
+    description:
+      "Kako zakazati sastanak sa advokatom u Novom Sadu, šta poneti na prvi sastanak i kako se obračunavaju troškovi advokata i sudske takse.",
+  },
+  {
     path: "/kontakt/",
     page: "contact",
     title: "Kontakt | Advokati Marić, Nedić i Biro, Novi Sad",
