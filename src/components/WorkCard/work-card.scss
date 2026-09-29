@@ -1,0 +1,92 @@
+@import "../../styles/variables";
+
+.c-work-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: $richBlackFogra39;
+  transition: all .2s ease-in;
+  transform-origin: 50% 50%;
+  justify-self: center;
+  height: 100%;
+  cursor: pointer;
+
+  @include breakpoint {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  & > *:not(img) {
+    position: relative;
+  }
+
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      transform: scale(1.1);
+      z-index: 5;
+      box-shadow: 5px 5px 25px rgba(0,0,0,.42);
+    }
+  }
+
+  &.c-work-card--open {
+    width: 30rem;
+    height: 30rem;
+    z-index: 10;
+
+    .c-work-card__text {
+      max-height: 30rem;
+      -webkit-line-clamp: 100;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+
+    @include breakpoint {
+      width: 29.5rem;
+      height: 35rem;
+      box-shadow: 5px 5px 25px rgba(0,0,0,.42);
+
+      .c-work-card__text {
+        max-height: 30rem;
+        -webkit-line-clamp: 100;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}
+
+.c-work-card__bg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 45%;
+}
+
+.c-work-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-height: 100%;
+  padding: 2.5rem;
+  gap: 1.25rem;
+  transform-origin: bottom;
+}
+
+.c-work-card__title {
+  font-size: 1.625rem;
+}
+
+.c-work-card__text {
+  width: 100%;
+  transition: all .3s linear;
+  font-size: .875rem;
+  line-height: 1.3125rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
