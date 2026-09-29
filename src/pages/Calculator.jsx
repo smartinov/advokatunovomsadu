@@ -47,18 +47,24 @@ export function Calculator() {
               </div>
             </fieldset>
 
-            <div className="field">
-              <label className="field-label" htmlFor="action">
-                Podnesak ili odluka
-              </label>
-              <select id="action" className="select" value={action} onChange={(e) => setAction(e.target.value)}>
+            {/* Radios rather than a select: the longer tariff labels must wrap on phones. */}
+            <fieldset>
+              <legend>Podnesak ili odluka</legend>
+              <div className="choice-list">
                 {ACTIONS.map((a) => (
-                  <option key={a.id} value={a.id}>
+                  <label key={a.id}>
+                    <input
+                      type="radio"
+                      name="action"
+                      value={a.id}
+                      checked={action === a.id}
+                      onChange={() => setAction(a.id)}
+                    />
                     {a.label}
-                  </option>
+                  </label>
                 ))}
-              </select>
-            </div>
+              </div>
+            </fieldset>
 
             <div className="field">
               <label className="field-label" htmlFor="value">

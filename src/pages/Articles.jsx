@@ -31,8 +31,8 @@ export function Articles() {
           </p>
         </div>
       </section>
-      <section className="section">
-        <ul className="container article-list">
+      <section className="list-section">
+        <ul className="article-list container">
           {articles.map((a) => (
             <li key={a.slug}>
               <a className="article-row" href={href(`/tekstovi/${a.slug}/`)}>

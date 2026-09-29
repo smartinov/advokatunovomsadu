@@ -1,5 +1,7 @@
 /* ----- Articles list ----- */
-.article-list { list-style: none; margin: 0; padding: 0; }
+/* Only the vertical list reset: .container supplies the side padding. */
+.list-section { padding-block: clamp(32px, 4vw, 56px) clamp(72px, 8vw, 120px); }
+.article-list { list-style: none; margin-block: 0; padding-block: 0; }
 .article-row {
   display: grid;
   grid-template-columns: 200px 1fr 180px;
@@ -69,6 +71,10 @@
 .segmented input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
 .segmented label:has(input:checked) { background: var(--ink); color: var(--bg); }
 .segmented label:has(input:focus-visible) { outline: 2px solid var(--copper); outline-offset: 2px; }
+.choice-list { display: grid; gap: 6px; }
+.choice-list label { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid var(--rule); background: #fff; font-size: 15px; line-height: 1.4; cursor: pointer; }
+.choice-list label:has(input:checked) { border-color: var(--ink); box-shadow: inset 3px 0 0 var(--copper); }
+.choice-list input { margin: 2px 0 0; accent-color: var(--copper-text); flex: none; }
 
 .calc-result { background: var(--bg-deep); color: var(--on-deep); padding: 48px 40px; position: sticky; top: calc(var(--header-h) + 24px); }
 .calc-total { font-family: var(--serif); font-size: clamp(52px, 7vw, 104px); line-height: 1; margin: 14px 0 6px; font-variant-numeric: tabular-nums; }
