@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { ACTIONS, COURTS, LAW, VERIFIED_ON, courtFee } from "../taksa";
-import { href } from "../components/Layout";
-
-const rsd = (n) => new Intl.NumberFormat("sr-RS").format(n);
-// Serbian formatting: "." groups thousands, "," starts decimals, which a fee on whole dinars ignores.
-const parseRsd = (s) => Number(String(s).split(",")[0].replace(/\D/g, "")) || 0;
+import { ACTIONS, COURTS, LAW, SOURCES, VERIFIED_ON, courtFee, readQuery, toParams } from "../taksa";
+import { rsd, parseRsd } from "../calc";
+import { ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
 
 export function Calculator() {
   const [court, setCourt] = useState("opsti");
@@ -12,6 +9,18 @@ export function Calculator() {
   const [input, setInput] = useState("500.000");
   const value = parseRsd(input);
   const r = courtFee({ court, action, value });
+
+  useQueryOnLoad((params) => {
+    const q = readQuery(params);
+    if (q.court) setCourt(q.court);
+    if (q.action) setAction(q.action);
+    if (q.value) setInput(rsd(q.value));
+  });
+
+  const share = (next) => {
+    const q = { court, action, value, ...next };
+    if (q.value > 0) replaceQuery(toParams(q));
+  };
 
   return (
     <>
@@ -39,7 +48,10 @@ export function Calculator() {
                       name="court"
                       value={c.id}
                       checked={court === c.id}
-                      onChange={() => setCourt(c.id)}
+                      onChange={() => {
+                        setCourt(c.id);
+                        share({ court: c.id });
+                      }}
                     />
                     {c.label}
                   </label>
@@ -58,7 +70,10 @@ export function Calculator() {
                       name="action"
                       value={a.id}
                       checked={action === a.id}
-                      onChange={() => setAction(a.id)}
+                      onChange={() => {
+                        setAction(a.id);
+                        share({ action: a.id });
+                      }}
                     />
                     {a.label}
                   </label>
@@ -78,7 +93,11 @@ export function Calculator() {
                 autoComplete="off"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onBlur={() => value && setInput(rsd(value))}
+                onBlur={() => {
+                  if (!value) return;
+                  setInput(rsd(value));
+                  share({});
+                }}
                 aria-describedby="value-hint"
                 aria-invalid={!r}
               />
@@ -119,12 +138,14 @@ export function Calculator() {
                 </div>
               </dl>
             )}
+            {r && <ShareLink params={toParams({ court, action, value })} />}
             <div className="calc-notes">
               <strong>Važno</strong>
               <ul>
                 <li>
                   Stranke se oslobađaju takse ako se parnični postupak okonča do zaključenja prvog ročišta za glavnu
-                  raspravu posredovanjem, sudskim poravnanjem, priznanjem ili odricanjem od tužbenog zahteva (član 9).
+                  raspravu posredovanjem, mirnim rešavanjem radnog spora, sudskim poravnanjem, priznanjem ili odricanjem od
+                  tužbenog zahteva (član 9).
                 </li>
                 <li>Kada je u sporu pred privrednim sudom jedna stranka fizičko lice koje nije preduzetnik, plaća se taksa kao pred sudom opšte nadležnosti.</li>
                 <li>
@@ -136,11 +157,9 @@ export function Calculator() {
           </section>
         </div>
 
-        <p className="calc-source" id="calc-source">
-          Izvor: {LAW}, Taksena tarifa, tarifni brojevi 1–3. Tarifu smo proverili {VERIFIED_ON} Kalkulator daje iznos
-          prema tarifi i ne zamenjuje pravni savet: taksa zavisi i od okolnosti predmeta.{" "}
-          <a href={href("/kontakt/")}>Pitajte advokata</a>.
-        </p>
+        <Sources law={LAW} basis="Taksena tarifa, tarifni brojevi 1–3" verifiedOn={VERIFIED_ON} sources={SOURCES}>
+          taksa zavisi i od okolnosti predmeta.
+        </Sources>
       </div>
     </>
   );

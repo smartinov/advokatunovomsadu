@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { courtFee } from "./taksa.js";
+import { courtFee, readQuery, toParams } from "./taksa.js";
 
 const fee = (court, action, value) => courtFee({ court, action, value })?.total;
 
@@ -30,4 +30,12 @@ test("action factors", () => {
 test("rejects invalid input", () => {
   assert.equal(courtFee({ court: "opsti", action: "tuzba", value: 0 }), null);
   assert.equal(courtFee({ court: "x", action: "tuzba", value: 1 }), null);
+});
+
+test("query round-trips and drops invalid params", () => {
+  const q = { court: "privredni", action: "zalba", value: 1_250_000 };
+  assert.deepEqual(readQuery(new URLSearchParams(toParams(q)).toString()), q);
+  assert.deepEqual(readQuery("?sud=x&podnesak=tuzba&vrednost=-5"), { action: "tuzba" });
+  assert.deepEqual(readQuery("?vrednost=1.5"), {});
+  assert.deepEqual(readQuery(""), {});
 });
