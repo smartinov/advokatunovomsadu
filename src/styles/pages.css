@@ -18,6 +18,13 @@
 .article-row h2 { font-size: clamp(24px, 2.4vw, 34px); }
 .article-row:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 .article-row p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
+
+/* ----- Calculators hub ----- */
+.calc-hub { list-style: none; margin-block: 0; padding-block: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 40px; }
+.calc-hub a { display: block; height: 100%; padding: 28px 0; border-top: 1px solid var(--rule); text-decoration: none; }
+.calc-hub h2 { font-size: clamp(22px, 2vw, 28px); }
+.calc-hub a:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.calc-hub p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
 .article-row .meta { display: block; margin-bottom: 8px; }
 .article-row .tag { color: var(--copper-text); }
 
@@ -66,7 +73,7 @@
 }
 .input:focus, .select:focus, .textarea:focus { outline: 2px solid var(--copper); outline-offset: 0; border-color: var(--copper); }
 .input-money { font-family: var(--mono); font-size: 20px; }
-.segmented { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink-mute); }
+.segmented { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--ink-mute); }
 .segmented label { position: relative; padding: 14px 12px; text-align: center; font-size: 14px; font-weight: 600; cursor: pointer; }
 .segmented label + label { border-left: 1px solid var(--ink-mute); }
 .segmented input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
@@ -88,6 +95,9 @@
 .calc-notes { margin-top: 28px; padding: 16px 18px; border-left: 2px solid var(--copper-soft); background: rgba(207, 154, 100, 0.08); font-size: 14px; color: var(--on-deep-soft); }
 .calc-notes ul { margin: 8px 0 0; padding-left: 18px; }
 .calc-source { font-size: 14px; color: var(--ink-mute); border-top: 1px solid var(--rule); padding-top: 24px; margin-bottom: 80px; }
+.calc-source ul { margin: 8px 0 0; padding-left: 18px; }
+.calc-share { margin-top: 28px; }
+.calc-share p { margin: 10px 0 0; font-size: 14px; color: var(--on-deep-soft); overflow-wrap: anywhere; }
 
 /* ----- Contact ----- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-block: 72px 96px; }

@@ -25,11 +25,59 @@ export const routes = [
     description: a.lede,
   })),
   {
+    path: "/kalkulatori/",
+    page: "calculators",
+    title: "Pravni kalkulatori | Advokati u Novom Sadu",
+    description:
+      "Kalkulatori sudske takse, advokatske i javnoizvršiteljske tarife, naknada APR-a, taksi za katastar i poreza na prenos, nasleđe i poklon.",
+  },
+  {
     path: "/sudska-taksa/",
     page: "calculator",
+    hub: "Taksa za tužbu, presudu, žalbu, reviziju ili predlog za izvršenje prema vrednosti spora.",
     title: "Kalkulator sudske takse | Advokati u Novom Sadu",
     description:
       "Izračunajte sudsku taksu za tužbu, presudu, žalbu, reviziju ili predlog za izvršenje prema Taksenoj tarifi Zakona o sudskim taksama.",
+  },
+  {
+    path: "/advokatska-tarifa/",
+    page: "attorneyFee",
+    hub: "Nagrada advokata za tužbu, ročište, žalbu ili odbranu u krivičnom postupku prema Advokatskoj tarifi.",
+    title: "Kalkulator advokatske tarife | Advokati u Novom Sadu",
+    description:
+      "Izračunajte nagradu advokata po Tarifi o nagradama i naknadama troškova za rad advokata za parnični i krivični postupak.",
+  },
+  {
+    path: "/javnoizvrsiteljska-tarifa/",
+    page: "enforcementFee",
+    hub: "Troškovi javnog izvršitelja i nagrada za uspešnost prema visini potraživanja.",
+    title: "Kalkulator javnoizvršiteljske tarife | Advokati u Novom Sadu",
+    description:
+      "Izračunajte troškove javnog izvršitelja za pripremu i sprovođenje izvršenja i nagradu za uspešnost prema Javnoizvršiteljskoj tarifi.",
+  },
+  {
+    path: "/apr-naknade/",
+    page: "aprFee",
+    hub: "Naknade za osnivanje, promene i brisanje privrednog društva ili preduzetnika i za registar zaloge.",
+    title: "Kalkulator naknada APR | Advokati u Novom Sadu",
+    description:
+      "Naknade Agencije za privredne registre za osnivanje, promenu podataka i brisanje privrednog društva ili preduzetnika i za registar zaloge.",
+  },
+  {
+    path: "/katastar-takse/",
+    page: "cadastreFee",
+    hub: "Takse za upis svojine, hipoteke i zabeležbe i za list nepokretnosti u katastru.",
+    title: "Kalkulator taksi za katastar | Advokati u Novom Sadu",
+    description:
+      "Republičke administrativne takse za upis prava svojine, hipoteke i zabeležbe u katastar nepokretnosti i za izvod iz lista nepokretnosti.",
+  },
+  {
+    path: "/porez-na-prenos-i-nasledje/",
+    page: "propertyTax",
+    hub: "Porez na prenos apsolutnih prava pri kupoprodaji i porez na nasleđe i poklon.",
+    title: "Kalkulator poreza na prenos, nasleđe i poklon | Advokati u Novom Sadu",
+    description:
+      "Izračunajte porez na prenos apsolutnih prava pri kupoprodaji nepokretnosti i porez na nasleđe i poklon prema Zakonu o porezima na imovinu.",
   },
   {
     path: "/kontakt/",

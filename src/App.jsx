@@ -14,6 +14,12 @@ import { Home } from "./pages/Home";
 import { Articles } from "./pages/Articles";
 import { Article } from "./pages/Article";
 import { Calculator } from "./pages/Calculator";
+import { Calculators } from "./pages/Calculators";
+import { AttorneyFee } from "./pages/AttorneyFee";
+import { EnforcementFee } from "./pages/EnforcementFee";
+import { AprFee } from "./pages/AprFee";
+import { CadastreFee } from "./pages/CadastreFee";
+import { PropertyTax } from "./pages/PropertyTax";
 import { Contact } from "./pages/Contact";
 
 function NotFound() {
@@ -31,7 +37,20 @@ function NotFound() {
   );
 }
 
-const PAGES = { home: Home, articles: Articles, article: Article, calculator: Calculator, contact: Contact, notfound: NotFound };
+const PAGES = {
+  home: Home,
+  articles: Articles,
+  article: Article,
+  calculators: Calculators,
+  calculator: Calculator,
+  attorneyFee: AttorneyFee,
+  enforcementFee: EnforcementFee,
+  aprFee: AprFee,
+  cadastreFee: CadastreFee,
+  propertyTax: PropertyTax,
+  contact: Contact,
+  notfound: NotFound,
+};
 
 export default function App({ route }) {
   const Page = PAGES[route.page];

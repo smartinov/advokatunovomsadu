@@ -77,6 +77,7 @@ function structuredData(route) {
     ];
   }
   if (route.page === "notfound") return [];
+  if (route.hub) return [breadcrumbs([["Početna", "/"], ["Kalkulatori", "/kalkulatori/"], [route.title.split(" | ")[0], route.path]])];
   return [breadcrumbs([["Početna", "/"], [route.title.split(" | ")[0], route.path]])];
 }
 
