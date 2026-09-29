@@ -7,6 +7,7 @@ export const LAW = "Zakon o republičkim administrativnim taksama (usklađeni iz
 export const VERIFIED_ON = "29. 9. 2026.";
 
 export const SOURCES = [
+  { label: "Zakon o republičkim administrativnim taksama, prečišćen tekst, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/2003/43/2/reg" },
   {
     label: "Zakon o republičkim administrativnim taksama, prečišćen tekst, Paragraf Lex",
     url: "https://www.paragraf.rs/propisi_download/zakon_o_republickim_administrativnim_taksama.pdf",
@@ -62,7 +63,7 @@ export const SERVICES = [
   },
   {
     id: "kopija-plana",
-    label: "Kopija plana (izvod iz digitalnog plana)",
+    label: "Kopija plana (izvod iz digitalnog plana nepokretnosti)",
     amount: 1_010,
     basis: "TB 215b st. 3 t. 2",
     extras: [{ key: "parcele", label: "Broj katastarskih parcela", amount: 430, from: 1 }],

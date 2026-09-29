@@ -7,6 +7,7 @@ export const LAW = "Odluka o naknadama za poslove registracije i druge usluge ko
 export const VERIFIED_ON = "29. 9. 2026.";
 
 export const SOURCES = [
+  { label: "Odluka o naknadama APR, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/drugidrzavniorganiorganizacije/odluka/2025/95/1/reg" },
   {
     label: "Odluka o naknadama za poslove registracije i druge usluge APR, Paragraf Lex",
     url: "https://www.paragraf.rs/propisi/odluka_o_naknadama_za_poslove_registracije_i_druge_usluge_koje_pruza_agencija_za_privredne_registre.html",

@@ -33,6 +33,8 @@ Kod: `src/advokatska.js`, test: `src/advokatska.test.js`, stranica: `/advokatska
 
 Propis: Tarifa o nagradama i naknadama troškova za rad advokata, „Sl. glasnik RS“, br. 43/2023 i 56/2025. Izmenom 56/2025 (odluka UO AKS od 21. 6. 2025, na snazi od 5. 7. 2025) vrednost poena je podignuta sa 45 na 50 dinara. Nagrade i granice vrednosti spora su u tarifi izražene u poenima, pa nova vrednost poena menja i jedno i drugo.
 
+Zvanični prečišćen tekst: [Pravno-informacioni sistem RS](https://pravno-informacioni-sistem.rs/eli/rep/sgrs/drugeorganizacije/tarifa/2023/43/1/reg).
+
 | Šta | Odredba | Izvor |
 |---|---|---|
 | Vrednost poena 50 RSD | član 15 | [Paragraf Lex, prečišćen tekst](https://www.paragraf.rs/propisi/tarifa_o_nagradama_i_naknadama_troskova_za_rad_advokata.html) |
@@ -57,8 +59,8 @@ Pomoćni izvori, korišćeni za unakrsnu proveru:
 
 Otvorena pitanja za kancelariju:
 
-- Tekst tarife je proveren samo na Paragraf Lex-u; zvanični tekst AKS-a i Službenog glasnika nije otvoren. Potvrdite da posle 56/2025 nema nove vrednosti poena.
-- Za spor preko 33.350.000 RSD (667.000 poena) tarifa dodaje po 1 poen na započetih 10.000, 30.000 i 150.000 poena, a nije jasno od kog iznosa se koraci računaju. Kalkulator zato iznad te vrednosti upućuje na advokata.
+- Iznosi su provereni na zvaničnom prečišćenom tekstu (PIS); u registru posle 56/2025 nema izmena. Sajt AKS-a se tokom provere nije otvarao.
+- Za spor preko 33.350.000 RSD (667.000 poena) tarifa dodaje po 1 poen na započetih 10.000, 30.000 i 150.000 poena, ukupno najviše 1.000 poena, a nije jasno od kog iznosa se koraci računaju. Kalkulator zato iznad te vrednosti upućuje na advokata.
 - Da li je vrednost tačno na granici razreda u nižem razredu (npr. 50.000 RSD = 200 poena)? Kalkulator tako računa.
 - Da li je kancelarija u sistemu PDV-a? Kalkulator prikazuje iznos bez PDV-a.
 
@@ -67,6 +69,8 @@ Otvorena pitanja za kancelariju:
 Kod: `src/izvrsitelj.js`, test: `src/izvrsitelj.test.js`, stranica: `/javnoizvrsiteljska-tarifa/`. Provereno 29. 9. 2026.
 
 Propis: Javnoizvršiteljska tarifa, „Sl. glasnik RS“, br. 93/2019 i 15/2023. Osnovni tekst važi od 1. 1. 2020, a izmena 15/2023 od 4. 3. 2023, za postupke pokrenute od tog dana. Izmena je podigla vrednost boda sa 120 na 150 dinara bez PDV-a.
+
+Zvanični prečišćen tekst: [Pravno-informacioni sistem RS](https://pravno-informacioni-sistem.rs/eli/rep/sgrs/ministarstva/drugiakt/2019/93/1/reg).
 
 | Šta | Odredba | Izvor |
 |---|---|---|
@@ -87,7 +91,7 @@ Pomoćni izvori:
 
 Otvorena pitanja za kancelariju:
 
-- Zvanični tekst (Službeni glasnik, PIS) nije otvoren; iznosi su iz Paragrafovog prečišćenog teksta. Nije potvrđeno da posle 15/2023 nema nove izmene.
+- Iznosi su provereni na zvaničnom prečišćenom tekstu (PIS); u registru posle 15/2023 nema izmena. Bod od 150 dinara važi za postupke pokrenute od 4. 3. 2023, a kalkulator ga primenjuje na sve.
 - Tarifa ne kaže da li se gornja granica (415 ili 200 bodova) primenjuje pre ili posle umanjenja iz člana 14. Kalkulator prvo primenjuje granicu, pa umanjenje.
 - Procenat u redovima Tarifnih brojeva 1 i 3 računamo u dinarima i dodajemo bodovima pretvorenim u dinare. Dobro bi bilo potvrditi na jednom stvarnom obračunu izvršitelja.
 - Drugi red Tarifnog broja 3 glasi „do 12.000“; čitamo ga kao „preko 6.000 do 12.000“.
@@ -99,6 +103,8 @@ Otvorena pitanja za kancelariju:
 Kod: `src/apr.js`, test: `src/apr.test.js`, stranica: `/apr-naknade/`. Provereno 29. 9. 2026.
 
 Propis: Odluka o naknadama za poslove registracije i druge usluge koje pruža Agencija za privredne registre, „Sl. glasnik RS“, br. 95/2025. Primenjuje se od 1. 1. 2026. (član 44) i zamenila je Odluku 131/22 i 80/25 (član 43). Iznosi se usklađuju jednom godišnje sa indeksom potrošačkih cena (član 42).
+
+Zvanični prečišćen tekst: [Pravno-informacioni sistem RS](https://pravno-informacioni-sistem.rs/eli/rep/sgrs/drugidrzavniorganiorganizacije/odluka/2025/95/1/reg).
 
 | Šta | Odredba | Izvor |
 |---|---|---|
@@ -115,7 +121,7 @@ Propis: Odluka o naknadama za poslove registracije i druge usluge koje pruža Ag
 | Svaki sledeći subjekt ili stvar u prijavi zaloge (+300) | član 16 | Paragraf Lex |
 | Brisanje zaloge (1.500) | član 18 | Paragraf Lex |
 | Neblagovremena prijava izmene ili brisanja zaloge (3.130) | član 21 | Paragraf Lex |
-| Račun 840-1308664-17, model 97 | član 39; stranice APR-a za privredna društva, preduzetnike i udruženja | APR |
+| Račun 840-1308664-17, model 97 | član 39 st. 4 i 5 (račune objavljuje APR); broj računa sa stranica APR-a za privredna društva, preduzetnike, udruženja i založno pravo | APR |
 
 Pomoćni izvori, korišćeni za unakrsnu proveru:
 
@@ -124,7 +130,7 @@ Pomoćni izvori, korišćeni za unakrsnu proveru:
 
 Otvorena pitanja za kancelariju:
 
-- Nije provereno da li je posle 95/2025 objavljena izmena ili usklađivanje (Pravno-informacioni sistem nije pretražen). Proveriti pre objave i posle svakog decembra.
+- Iznosi su provereni na zvaničnom tekstu (PIS); u registru posle 95/2025 nema izmena ni usklađivanja. Proveriti posle svakog godišnjeg usklađivanja (član 42).
 - Ortačko i komanditno društvo nisu posebno navedeni u Odluci; kalkulator ih računa kao „privredno društvo“ (član 2).
 - Likvidacija nema posebnu naknadu u Odluci; prijave u likvidaciji verovatno idu kao promena podataka (4.000). Kalkulator to ne prikazuje posebno.
 - Kalkulator navodi da se dodatna naknada za kasnu prijavu (6.260) ne plaća za promene koje nastaju upisom, na primer prenos udela. To pravilo je sa stranice APR-a, ne iz teksta Odluke; potvrdite ga.
@@ -137,6 +143,8 @@ Otvorena pitanja za kancelariju:
 Kod: `src/katastar.js`, test: `src/katastar.test.js`, stranica: `/katastar-takse/`. Provereno 29. 9. 2026.
 
 Propis: Zakon o republičkim administrativnim taksama, tarifni broj 1 (zahtev) i tarifni broj 215b (katastar nepokretnosti), sa usklađenim dinarskim iznosima iz „Sl. glasnika RS“, br. 54/2026, koji se primenjuju od 1. 7. 2026. Izmena 109/2025 promenila je samo reč „od“ u „preko“ u razredima za hipoteku, ne iznose. Iznosi se usklađuju jednom godišnje.
+
+Zvanični prečišćen tekst: [Pravno-informacioni sistem RS](https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/2003/43/2/reg).
 
 | Šta | Odredba | Izvor |
 |---|---|---|
@@ -160,7 +168,7 @@ Pomoćni izvori, korišćeni za unakrsnu proveru:
 
 Otvorena pitanja za kancelariju:
 
-- Iznosi su preuzeti iz prečišćenog teksta Paragrafa, ne iz samog „Sl. glasnika“ 54/2026. Uporediti sa zvaničnim tekstom pre objave.
+- Iznosi su provereni na zvaničnom prečišćenom tekstu (PIS) i u usklađenim iznosima iz „Sl. glasnika RS“ 54/2026 (važe od 1. 7. 2026). Proveriti posle svakog usklađivanja.
 - Da se taksa za zahtev (430) plaća uz taksu iz TB 215b zaključeno je iz prakse RGZ-a opisane na njegovom (zastarelom) sajtu. Proveriti da li važi i za zahteve preko eŠaltera i za izvode i uverenja.
 - Kalkulator ne sadrži geodetske radove (parcelacija i slično), služnosti, garaže, garažna mesta ni promene podataka o imaocu prava.
 
@@ -168,7 +176,9 @@ Otvorena pitanja za kancelariju:
 
 Kod: `src/porez.js`, test: `src/porez.test.js`, stranica: `/porez-na-prenos-i-nasledje/`. Provereno 29. 9. 2026.
 
-Propis: Zakon o porezima na imovinu, „Sl. glasnik RS“, br. 26/2001, „Sl. list SRJ“, br. 42/2002 – odluka SUS i „Sl. glasnik RS“, br. 80/2002, 80/2002 – dr. zakon, 135/2004, 61/2007, 5/2009, 101/2010, 24/2011, 78/2011, 57/2012 – odluka US, 47/2013, 68/2014 – dr. zakon, 95/2018, 99/2018 – odluka US, 86/2019, 144/2020, 118/2021, 138/2022, 92/2023 i 94/2024. Od 1. 1. 2025. oba poreza utvrđuje i naplaćuje poreska uprava grada ili opštine u kojoj se nalazi nepokretnost; stope i oslobođenja propisuje samo zakon.
+Propis: Zakon o porezima na imovinu, „Sl. glasnik RS“, br. 26/2001, 45/2002 – odluka SUS, 80/2002, 80/2002 – dr. zakon, 135/2004, 61/2007, 5/2009, 101/2010, 24/2011, 78/2011, 57/2012 – odluka US, 47/2013, 68/2014 – dr. zakon, 95/2018, 99/2018 – odluka US, 86/2019, 144/2020, 118/2021, 138/2022, 92/2023 i 94/2024. Prijavu prima i rešenje donosi nadležni poreski organ (članovi 35, 36 i 40); stope i oslobođenja propisuje samo zakon.
+
+Zvanični prečišćen tekst: [Pravno-informacioni sistem RS](https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/2001/26/1/reg).
 
 | Šta | Odredba | Izvor |
 |---|---|---|
@@ -191,7 +201,7 @@ Pomoćni izvori:
 
 Otvorena pitanja za kancelariju:
 
-- Zvanični tekst na pravno-informacioni-sistem.rs nije otvoren; potrebno je potvrditi da posle 94/2024 nema izmena.
+- Provereno na zvaničnom prečišćenom tekstu (PIS): posle 94/2024 nema izmena.
 - Roditelj koji prima poklon od deteta: kalkulator računa 1,5% (drugi nasledni red), jer član 21 oslobađa roditelja samo kao naslednika. Potvrditi.
 - Pastorčad se ne smatra potomkom ako nije usvojena; kalkulator to ne navodi posebno.
 - Oslobođenje za prvi stan i oslobođenje poljoprivrednika (član 21 tačka 2) samo su opisani, ne računaju se.

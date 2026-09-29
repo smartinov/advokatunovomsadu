@@ -7,6 +7,7 @@ export const LAW = "Zakon o porezima na imovinu (Sl. glasnik RS 26/2001 … 94/2
 export const VERIFIED_ON = "29. 9. 2026.";
 
 export const SOURCES = [
+  { label: "Zakon o porezima na imovinu, prečišćen tekst, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/2001/26/1/reg" },
   {
     label: "Zakon o porezima na imovinu, prečišćen tekst, Paragraf Lex",
     url: "https://www.paragraf.rs/propisi/zakon_o_porezima_na_imovinu.html",

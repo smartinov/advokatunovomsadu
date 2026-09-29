@@ -8,6 +8,7 @@ export const VERIFIED_ON = "29. 9. 2026.";
 export const POINT_VALUE = 50; // Član 15.
 
 export const SOURCES = [
+  { label: "Tarifa o nagradama i naknadama troškova za rad advokata, prečišćen tekst, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/drugeorganizacije/tarifa/2023/43/1/reg" },
   {
     label: "Tarifa o nagradama i naknadama troškova za rad advokata, prečišćen tekst, Paragraf Lex",
     url: "https://www.paragraf.rs/propisi/tarifa_o_nagradama_i_naknadama_troskova_za_rad_advokata.html",
@@ -39,7 +40,7 @@ export const PENALTIES = [
   { id: "do-10", label: "Zatvor preko 5 do 10 godina", points: 1_000 },
   { id: "do-15", label: "Zatvor preko 10 do 15 godina", points: 1_500 },
   { id: "preko-15", label: "Zatvor preko 15 godina", points: 2_000 },
-  { id: "dozivotni", label: "Zatvor od 30 do 40 godina ili doživotni zatvor", points: 2_500 },
+  { id: "dozivotni", label: "Zatvor od 30 do 40 godina, zatvor od 40 godina ili doživotni zatvor", points: 2_500 },
 ];
 
 export const MODES = [
