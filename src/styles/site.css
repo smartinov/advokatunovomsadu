@@ -29,6 +29,9 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
 html, body { margin: 0; padding: 0; }
+/* Short pages (404) keep the footer at the bottom of the window. */
+#root { min-height: 100svh; display: flex; flex-direction: column; }
+#root > main { flex: 1; }
 body {
   font-family: var(--sans);
   background: var(--bg);
@@ -193,13 +196,14 @@ body.nav-open { overflow: hidden; }
 .btn-ghost:hover { background: var(--on-deep); color: var(--ink); }
 
 /* ----- Hero ----- */
+/* Sized to its content: without a background photo a full-screen hero is mostly empty on tall screens. */
 .hero {
-  min-height: 100svh;
+  min-height: min(100svh, 720px);
   position: relative;
   background: var(--bg-deep);
   color: var(--on-deep);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding: 140px 0 clamp(56px, 9vh, 120px);
   overflow: hidden;
 }
@@ -262,7 +266,7 @@ body.nav-open { overflow: hidden; }
 
 /* ----- Team ----- */
 .team { background: var(--bg-deep); color: var(--on-deep); }
-.team-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.team-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
 .member {
   display: flex;
   flex-direction: column;
@@ -274,7 +278,7 @@ body.nav-open { overflow: hidden; }
   cursor: pointer;
 }
 .member-image { aspect-ratio: 3 / 4; overflow: hidden; margin-bottom: 22px; background: var(--bg-deep-2); }
-.member-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter 0.5s, transform 0.6s; }
+.member-image img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; filter: grayscale(1); transition: filter 0.5s, transform 0.6s; }
 .member:hover .member-image img, .member:focus-visible .member-image img { filter: none; transform: scale(1.03); }
 .member-role { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper-soft); }
 .member-name { font-family: var(--serif); font-size: clamp(26px, 2.4vw, 34px); margin-top: 6px; }
@@ -291,7 +295,7 @@ body.nav-open { overflow: hidden; }
 }
 .member-dialog::backdrop { background: rgba(7, 11, 13, 0.82); }
 .member-dialog-inner { display: grid; grid-template-columns: 1fr 1.4fr; }
-.member-dialog-img img { width: 100%; height: 100%; object-fit: cover; }
+.member-dialog-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
 .member-dialog-body { padding: 48px; }
 .member-dialog-body h2 { font-size: clamp(32px, 3.4vw, 46px); margin: 8px 0 24px; }
 .member-dialog-body p { font-size: 15px; color: var(--ink-soft); }
@@ -345,7 +349,7 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 980px) {
   .site-nav { display: none; }
   .menu-toggle { display: inline-flex; }
-  .team-grid, .articles-grid, .member-dialog-inner { grid-template-columns: 1fr; }
+  .articles-grid, .member-dialog-inner { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .value:nth-child(2n) { border-right: none; }
   .value:nth-child(-n + 2) { border-bottom: 1px solid var(--rule-soft); }

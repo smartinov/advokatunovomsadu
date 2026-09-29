@@ -1,8 +1,10 @@
 /* ----- Articles list ----- */
-.article-list { list-style: none; margin: 0; padding: 0; }
+/* Only the vertical list reset: .container supplies the side padding. */
+.list-section { padding-block: clamp(32px, 4vw, 56px) clamp(72px, 8vw, 120px); }
+.article-list { list-style: none; margin-block: 0; padding-block: 0; }
 .article-row {
   display: grid;
-  grid-template-columns: 200px 1fr 180px;
+  grid-template-columns: 200px 1fr;
   gap: 40px;
   align-items: center;
   padding: 30px 0;
@@ -16,8 +18,8 @@
 .article-row h2 { font-size: clamp(24px, 2.4vw, 34px); }
 .article-row:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 .article-row p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
-.article-row .meta { text-align: right; }
-.article-row .meta span { display: block; color: var(--copper-text); margin-bottom: 4px; }
+.article-row .meta { display: block; margin-bottom: 8px; }
+.article-row .tag { color: var(--copper-text); }
 
 /* ----- Article ----- */
 /* Reading progress without JS; browsers lacking scroll-driven animations simply show no bar. */
@@ -38,7 +40,8 @@
 .article-meta .tag { color: var(--copper-text); }
 .article-cover { max-width: 960px; aspect-ratio: 16 / 9; overflow: hidden; margin-top: 40px; }
 .article-cover img { width: 100%; height: 100%; object-fit: cover; }
-.article-body { max-width: 740px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) var(--pad-x); }
+/* Left-aligned under the title and cover; the measure caps line length. */
+.article-body { max-width: 720px; padding-block: clamp(48px, 6vw, 88px); }
 .article-body p { font-size: 19px; line-height: 1.75; color: var(--ink); margin-bottom: 1.3em; }
 .article-body > p:first-of-type::first-letter { font-family: var(--serif); float: left; font-size: 4.6em; line-height: 0.85; margin: 6px 12px 0 0; color: var(--copper); }
 .cta-card { margin-top: 56px; padding: 40px; background: var(--bg-deep); color: var(--on-deep); display: grid; gap: 16px; justify-items: start; }
@@ -69,6 +72,10 @@
 .segmented input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
 .segmented label:has(input:checked) { background: var(--ink); color: var(--bg); }
 .segmented label:has(input:focus-visible) { outline: 2px solid var(--copper); outline-offset: 2px; }
+.choice-list { display: grid; gap: 6px; }
+.choice-list label { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid var(--rule); background: #fff; font-size: 15px; line-height: 1.4; cursor: pointer; }
+.choice-list label:has(input:checked) { border-color: var(--ink); box-shadow: inset 3px 0 0 var(--copper); }
+.choice-list input { margin: 2px 0 0; accent-color: var(--copper-text); flex: none; }
 
 .calc-result { background: var(--bg-deep); color: var(--on-deep); padding: 48px 40px; position: sticky; top: calc(var(--header-h) + 24px); }
 .calc-total { font-family: var(--serif); font-size: clamp(52px, 7vw, 104px); line-height: 1; margin: 14px 0 6px; font-variant-numeric: tabular-nums; }
@@ -99,11 +106,9 @@
   .calc-wrap, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .calc-result { position: static; }
   .article-row { grid-template-columns: 160px 1fr; }
-  .article-row .meta { grid-column: 2; text-align: left; order: -1; }
 }
 @media (max-width: 640px) {
   .article-row { grid-template-columns: 1fr; gap: 14px; }
-  .article-row .meta { grid-column: auto; }
   .article-cover { aspect-ratio: 16 / 10; }
   .article-body p { font-size: 17px; }
   .calc-card, .calc-result { padding: 28px 22px; }

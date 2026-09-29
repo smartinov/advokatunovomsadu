@@ -31,17 +31,19 @@ export function Article({ article: a }) {
           </div>
         </div>
       </header>
-      <div className="article-body">
-        {a.body.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
-        <aside className="cta-card" aria-labelledby="cta-title">
-          <h2 id="cta-title">Treba vam pravni savet?</h2>
-          <p>Svaki predmet je drugačiji. Pozovite ili pišite advokatu i dogovorite sastanak u kancelariji.</p>
-          <a href={href("/kontakt/")} className="btn btn-primary">
-            Kontakt advokata
-          </a>
-        </aside>
+      <div className="container">
+        <div className="article-body">
+          {a.body.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+          <aside className="cta-card" aria-labelledby="cta-title">
+            <h2 id="cta-title">Treba vam pravni savet?</h2>
+            <p>Svaki predmet je drugačiji. Pozovite ili pišite advokatu i dogovorite sastanak u kancelariji.</p>
+            <a href={href("/kontakt/")} className="btn btn-primary">
+              Kontakt advokata
+            </a>
+          </aside>
+        </div>
       </div>
       <section className="section more" aria-labelledby="more-title">
         <div className="container">
