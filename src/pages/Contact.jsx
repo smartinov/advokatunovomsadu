@@ -17,7 +17,7 @@ export function Contact() {
         <div className="container">
           <p className="label">Kontakt</p>
           <h1>Pozovite ili pišite advokatu</h1>
-          <p className="lede">Svaki advokat ima svoj telefon i adresu e-pošte. Sastanci su u kancelariji u Maksima Gorkog 10A.</p>
+          <p className="lede">Svaki advokat ima zaseban telefon i adresu e-pošte, navedene ispod. Sastanci se održavaju u kancelariji u Ulici Maksima Gorkog 10A.</p>
         </div>
       </section>
       <div className="container contact-grid">

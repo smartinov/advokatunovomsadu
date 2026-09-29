@@ -92,7 +92,7 @@ export function renderHead(route, { base, preview }) {
     `<link rel="apple-touch-icon" href="${base}logo192.png" />`,
     `<meta property="og:type" content="${route.page === "article" ? "article" : "website"}" />`,
     `<meta property="og:locale" content="sr_RS" />`,
-    `<meta property="og:site_name" content="Advokati Novi Sad" />`,
+    `<meta property="og:site_name" content="Advokati u Novom Sadu" />`,
     `<meta property="og:title" content="${esc(route.title)}" />`,
     `<meta property="og:description" content="${esc(route.description)}" />`,
     `<meta property="og:url" content="${url}" />`,

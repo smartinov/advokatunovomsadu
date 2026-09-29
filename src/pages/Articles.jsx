@@ -26,8 +26,8 @@ export function Articles() {
           <p className="label">Stručni tekstovi</p>
           <h1>Pravni tekstovi iz naše prakse</h1>
           <p className="lede">
-            Porodično, radno, nasledno, krivično i privredno pravo: šta zakon propisuje, koji su rokovi i kako se
-            postupak odvija.
+            Pišemo o tome šta zakon propisuje, koji su rokovi i kako teče postupak u porodičnim, radnim, naslednim,
+            krivičnim i privrednim stvarima.
           </p>
         </div>
       </section>

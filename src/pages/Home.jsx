@@ -13,8 +13,9 @@ function Hero() {
           <em>Marić, Nedić i Biro</em>
         </h1>
         <p className="hero-lede">
-          Zastupamo klijente pred sudovima svih nadležnosti i pred državnim organima: krivični i prekršajni postupci,
-          parnice, porodični i radni sporovi, privredno pravo, naknada štete i naplata potraživanja.
+          Pred sudovima svih nadležnosti i državnim organima zastupamo klijente u krivičnim i prekršajnim postupcima,
+          parnicama, porodičnim i radnim sporovima, kao i u predmetima privrednog prava, naknade štete i naplate
+          potraživanja.
         </p>
         <div className="hero-actions">
           <a href={href("/kontakt/")} className="btn btn-primary">
@@ -53,7 +54,7 @@ function About() {
       <div className="container">
         <div className="about-text">
           <p className="label">O nama</p>
-          <h2>Tri advokata, jedna kancelarija</h2>
+          <h2>Kancelarija troje advokata u Ulici Maksima Gorkog</h2>
           <p>
             Advokat Dijana Biro, advokat Davor Marić i advokat Milan Nedić bave se stručnim pružanjem pravne pomoći u
             velikom broju oblasti prava, pred sudovima svih nadležnosti, kao i pred svim drugim državnim organima i
