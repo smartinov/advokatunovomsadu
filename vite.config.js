@@ -1,9 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// The GitHub Pages preview lives under a subpath and must not compete with the production domain in search.
+// The GitHub Pages preview lives under a subpath; scripts/prerender.js marks it noindex.
 const base = process.env.BASE_PATH || "/";
-const isPreview = base !== "/";
 
 const csp = [
   "default-src 'self'",
@@ -17,26 +16,14 @@ const csp = [
 ].join("; ");
 
 // Build-only: the dev server injects inline scripts that this CSP would block.
-const hardenHtml = {
-  name: "harden-html",
+const cspMeta = {
+  name: "csp-meta",
   apply: "build",
-  transformIndexHtml: (html) => {
-    const withCsp = html.replace(
-      "<head>",
-      `<head>\n    <meta http-equiv="Content-Security-Policy" content="${csp}" />`
-    );
-    return isPreview
-      ? withCsp.replace('content="index,follow"', 'content="noindex,follow"')
-      : withCsp;
-  },
+  transformIndexHtml: (html) =>
+    html.replace('<meta charset="utf-8" />', `<meta charset="utf-8" />\n    <meta http-equiv="Content-Security-Policy" content="${csp}" />`),
 };
 
 export default defineConfig({
   base,
-  plugins: [react(), hardenHtml],
-  build: {
-    rollupOptions: {
-      input: ["index.html", "tekstovi.html"],
-    },
-  },
+  plugins: [react(), cspMeta],
 });
