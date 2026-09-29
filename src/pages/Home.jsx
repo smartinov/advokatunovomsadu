@@ -1,16 +1,11 @@
 import { useRef, useState } from "react";
-import { articles, fields, sayings, team, teamSummary, values } from "../content";
+import { articles, fields, sayings, team, values } from "../content";
 import { formatPhone, href } from "../components/Layout";
-
-const sentence = (s) => s.charAt(0).toUpperCase() + s.slice(1) + (/[.!?]$/.test(s) ? "" : ".");
 import { ArticleCard } from "./Articles";
-import bannerBg from "../assets/images/bannerBg.webp";
-import aboutImg from "../assets/images/aboutImg.webp";
 
 function Hero() {
   return (
     <section className="hero">
-      <div className="hero-bg" style={{ backgroundImage: `url(${bannerBg})` }} aria-hidden="true" />
       <div className="hero-content container">
         <p className="label">Maksima Gorkog 10A · Novi Sad</p>
         <h1>
@@ -55,10 +50,7 @@ function Sayings() {
 function About() {
   return (
     <section className="section" id="o-nama">
-      <div className="container about-grid">
-        <div className="about-image">
-          <img src={aboutImg} alt="" width="640" height="800" loading="lazy" />
-        </div>
+      <div className="container">
         <div className="about-text">
           <p className="label">O nama</p>
           <h2>Tri advokata, jedna kancelarija</h2>
@@ -99,7 +91,7 @@ function Values() {
         {values.map((v) => (
           <li className="value" key={v.title}>
             <h3>{v.title}</h3>
-            <p>{sentence(v.desc)}</p>
+            <p>{v.desc}</p>
           </li>
         ))}
       </ul>
@@ -133,10 +125,13 @@ function Fields() {
 
 function Team() {
   const dialog = useRef(null);
+  const closeButton = useRef(null);
   const [member, setMember] = useState(team[0]);
   const open = (m) => {
     setMember(m);
     dialog.current.showModal();
+    // The dialog would otherwise focus its first link, scrolled below the fold on phones.
+    closeButton.current.focus();
   };
   return (
     <section className="section team" id="tim">
@@ -154,7 +149,7 @@ function Team() {
                 </span>
                 <span className="member-role">{m.title}</span>
                 <span className="member-name">{m.name}</span>
-                <span className="member-summary">{teamSummary[m.slug]}</span>
+                <span className="member-summary">{m.summary}</span>
                 <span className="member-more">Biografija i kontakt</span>
               </button>
             </li>
@@ -167,9 +162,12 @@ function Team() {
         aria-labelledby="member-dialog-title"
         onClick={(e) => e.target === dialog.current && dialog.current.close()}
       >
+        <button type="button" className="dialog-close" ref={closeButton} onClick={() => dialog.current.close()} aria-label="Zatvori">
+          ×
+        </button>
         <div className="member-dialog-inner">
           <div className="member-dialog-img">
-            <img src={member.img} alt={member.name} width="600" height="800" />
+            <img src={member.img} alt="" width="600" height="800" />
           </div>
           <div className="member-dialog-body">
             <p className="label">{member.title}</p>
@@ -183,9 +181,6 @@ function Team() {
             </div>
           </div>
         </div>
-        <button type="button" className="dialog-close" onClick={() => dialog.current.close()} aria-label="Zatvori">
-          ×
-        </button>
       </dialog>
     </section>
   );

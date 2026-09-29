@@ -20,11 +20,23 @@
 .article-row .meta span { display: block; color: var(--copper-text); margin-bottom: 4px; }
 
 /* ----- Article ----- */
-.progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 200; pointer-events: none; }
-.progress-bar { height: 100%; width: 100%; background: var(--copper); transform-origin: 0 50%; transform: scaleX(0); }
+/* Reading progress without JS; browsers lacking scroll-driven animations simply show no bar. */
+.progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 200;
+  pointer-events: none;
+  background: var(--copper);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  animation: read-progress linear both;
+  animation-timeline: scroll(root);
+}
+@keyframes read-progress { to { transform: scaleX(1); } }
 .article-meta { margin-top: 24px; display: flex; gap: 24px; flex-wrap: wrap; }
 .article-meta .tag { color: var(--copper-text); }
-.article-cover { aspect-ratio: 21 / 9; overflow: hidden; margin-top: 40px; }
+.article-cover { max-width: 960px; aspect-ratio: 16 / 9; overflow: hidden; margin-top: 40px; }
 .article-cover img { width: 100%; height: 100%; object-fit: cover; }
 .article-body { max-width: 740px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) var(--pad-x); }
 .article-body p { font-size: 19px; line-height: 1.75; color: var(--ink); margin-bottom: 1.3em; }
@@ -44,22 +56,21 @@
 .input, .select, .textarea {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--ink-mute);
   background: #fff;
   border-radius: 0;
   font-size: 17px;
 }
 .input:focus, .select:focus, .textarea:focus { outline: 2px solid var(--copper); outline-offset: 0; border-color: var(--copper); }
 .input-money { font-family: var(--mono); font-size: 20px; }
-.segmented { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); }
+.segmented { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink-mute); }
 .segmented label { position: relative; padding: 14px 12px; text-align: center; font-size: 14px; font-weight: 600; cursor: pointer; }
-.segmented label + label { border-left: 1px solid var(--rule); }
+.segmented label + label { border-left: 1px solid var(--ink-mute); }
 .segmented input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
 .segmented label:has(input:checked) { background: var(--ink); color: var(--bg); }
 .segmented label:has(input:focus-visible) { outline: 2px solid var(--copper); outline-offset: 2px; }
 
 .calc-result { background: var(--bg-deep); color: var(--on-deep); padding: 48px 40px; position: sticky; top: calc(var(--header-h) + 24px); }
-.calc-result .label { color: var(--copper-soft); }
 .calc-total { font-family: var(--serif); font-size: clamp(52px, 7vw, 104px); line-height: 1; margin: 14px 0 6px; font-variant-numeric: tabular-nums; }
 .calc-currency { font-size: 14px; letter-spacing: 0.12em; color: var(--on-deep-soft); }
 .calc-breakdown { margin: 36px 0 0; padding-top: 24px; border-top: 1px solid rgba(207, 154, 100, 0.3); }
