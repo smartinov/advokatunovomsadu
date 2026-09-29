@@ -371,7 +371,7 @@ body.nav-open { overflow: hidden; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { justify-content: center; }
   .values-grid { grid-template-columns: 1fr; }
-  .value { border-right: none; border-bottom: 1px solid var(--rule-soft); padding: 28px 24px; }
+  .value { border-right: none; border-bottom: 1px solid var(--rule-soft); padding: 28px var(--pad-x); }
   .facts li { grid-template-columns: 1fr; gap: 2px; }
   .footer-inner { grid-template-columns: 1fr; }
 }
