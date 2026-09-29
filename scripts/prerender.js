@@ -1,13 +1,25 @@
 import fs from "node:fs";
-import { render } from "../dist-ssr/entry-server.js";
+import path from "node:path";
+import { notFound, render, renderHead, renderSitemap, routes } from "../dist-ssr/entry-server.js";
 
-const pages = { "dist/index.html": undefined, "dist/tekstovi.html": "tekstovi" };
-const root = '<div id="root"></div>';
+const base = process.env.BASE_PATH || "/";
+const preview = base !== "/";
+const template = fs.readFileSync("dist/index.html", "utf8");
 
-for (const [file, page] of Object.entries(pages)) {
-  const html = fs.readFileSync(file, "utf8");
-  if (!html.includes(root)) throw new Error(`${file}: missing ${root}`);
-  fs.writeFileSync(file, html.replace(root, `<div id="root">${render(page)}</div>`));
+for (const marker of ["<!--app-head-->", '<div id="root"></div>']) {
+  if (!template.includes(marker)) throw new Error(`dist/index.html: missing ${marker}`);
 }
 
+const page = (route) =>
+  template
+    .replace("<!--app-head-->", renderHead(route, { base, preview }))
+    .replace('<div id="root"></div>', `<div id="root">${render(route)}</div>`);
+
+for (const route of routes) {
+  const file = path.join("dist", route.path, "index.html");
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, page(route));
+}
+fs.writeFileSync("dist/404.html", page(notFound));
+fs.writeFileSync("dist/sitemap.xml", renderSitemap());
 fs.rmSync("dist-ssr", { recursive: true });

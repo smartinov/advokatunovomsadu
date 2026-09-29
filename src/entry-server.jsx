@@ -1,10 +1,14 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import App from "./App";
+import { notFound, routes } from "./routes";
+import { renderHead, renderSitemap } from "./head";
 
-export const render = (page) =>
+export { notFound, routes, renderHead, renderSitemap };
+
+export const render = (route) =>
   renderToString(
     <React.StrictMode>
-      <App page={page} />
+      <App route={route} />
     </React.StrictMode>
   );
