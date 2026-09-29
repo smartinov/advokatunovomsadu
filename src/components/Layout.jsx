@@ -15,6 +15,7 @@ const NAV = [
     label: "Kalkulatori",
     page: ["calculators", "calculator", "attorneyFee", "enforcementFee", "aprFee", "cadastreFee", "propertyTax"],
   },
+  { path: "/cesta-pitanja/", label: "Česta pitanja", page: ["faq"] },
   { path: "/kontakt/", label: "Kontakt", page: ["contact"] },
 ];
 
@@ -128,7 +129,7 @@ function Footer() {
         <span>Advokatska kancelarija Marić, Nedić i Biro</span>
         <span>
           <a href={href("/tekstovi/")}>Stručni tekstovi</a> · <a href={href("/kalkulatori/")}>Kalkulatori</a> ·{" "}
-          <a href={href("/kontakt/")}>Kontakt</a>
+          <a href={href("/cesta-pitanja/")}>Česta pitanja</a> · <a href={href("/kontakt/")}>Kontakt</a>
         </span>
       </div>
     </footer>

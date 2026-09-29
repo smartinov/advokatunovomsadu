@@ -1,5 +1,5 @@
 import { SITE, routes } from "./routes";
-import { office, team } from "./content";
+import { faq, office, team } from "./content";
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -20,6 +20,7 @@ function firm() {
         name: office.name,
         url: `${SITE}/`,
         image: `${SITE}/og-image.jpg`,
+        logo: `${SITE}/logo192.png`,
         telephone: team[0].phone,
         address: {
           "@type": "PostalAddress",
@@ -28,6 +29,7 @@ function firm() {
           addressLocality: office.city,
           addressCountry: "RS",
         },
+        geo: { "@type": "GeoCoordinates", ...office.geo },
         hasMap: office.mapUrl,
         areaServed: { "@type": "City", name: office.city },
         employee: team.map((m) => ({ "@id": `${SITE}/#${m.slug}` })),
@@ -59,26 +61,53 @@ function breadcrumbs(items) {
   };
 }
 
-function structuredData(route) {
+const pageCrumbs = (route) =>
+  breadcrumbs([
+    ["Početna", "/"],
+    ...(route.hub ? [["Kalkulatori", "/kalkulatori/"]] : []),
+    [route.title.split(" | ")[0], route.path],
+  ]);
+
+function structuredData(route, base) {
   if (route.page === "home") return [firm()];
+  if (route.page === "contact") return [firm(), pageCrumbs(route)];
+  if (route.page === "faq") {
+    const text = (a) => a.map((p) => (Array.isArray(p) ? p.join(" ") : p)).join(" ");
+    return [
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        inLanguage: "sr-RS",
+        mainEntity: faq.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: text(item.a) },
+        })),
+      },
+      pageCrumbs(route),
+    ];
+  }
   if (route.page === "article") {
     const a = route.article;
+    const firmRef = { "@type": "LegalService", "@id": firmId, name: office.name };
     return [
       {
         "@context": "https://schema.org",
         "@type": "Article",
         headline: a.title,
         description: a.lede,
+        // Asset URLs carry the build base; canonical URLs never do.
+        image: `${SITE}/${a.img.slice(base.length)}`,
         inLanguage: "sr-RS",
         mainEntityOfPage: `${SITE}${route.path}`,
-        publisher: { "@type": "LegalService", "@id": firmId, name: office.name },
+        author: firmRef,
+        publisher: firmRef,
       },
       breadcrumbs([["Početna", "/"], ["Stručni tekstovi", "/tekstovi/"], [a.title, route.path]]),
     ];
   }
   if (route.page === "notfound") return [];
-  if (route.hub) return [breadcrumbs([["Početna", "/"], ["Kalkulatori", "/kalkulatori/"], [route.title.split(" | ")[0], route.path]])];
-  return [breadcrumbs([["Početna", "/"], [route.title.split(" | ")[0], route.path]])];
+  return [pageCrumbs(route)];
 }
 
 export function renderHead(route, { base, preview }) {
@@ -101,7 +130,7 @@ export function renderHead(route, { base, preview }) {
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
-    ...structuredData(route).map(ld),
+    ...structuredData(route, base).map(ld),
   ]
     .filter(Boolean)
     .join("\n    ");

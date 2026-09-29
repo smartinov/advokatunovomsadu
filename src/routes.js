@@ -80,6 +80,13 @@ export const routes = [
       "Izračunajte porez na prenos apsolutnih prava pri kupoprodaji nepokretnosti i porez na nasleđe i poklon prema Zakonu o porezima na imovinu.",
   },
   {
+    path: "/cesta-pitanja/",
+    page: "faq",
+    title: "Česta pitanja | Advokati u Novom Sadu",
+    description:
+      "Kako zakazati sastanak sa advokatom u Novom Sadu, šta poneti na prvi sastanak i kako se obračunavaju troškovi advokata i sudske takse.",
+  },
+  {
     path: "/kontakt/",
     page: "contact",
     title: "Kontakt | Advokati Marić, Nedić i Biro, Novi Sad",

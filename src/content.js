@@ -18,6 +18,8 @@ export const office = {
   postalCode: "21000",
   city: "Novi Sad",
   mapUrl: "https://goo.gl/maps/VPgfCqgWRgXRG9UWA",
+  // The pin that mapUrl resolves to.
+  geo: { latitude: 45.249777, longitude: 19.84678 },
 };
 
 export const team = [
@@ -179,6 +181,76 @@ export const sayings = [
     "latin": "Falsa demonstratio non nocet",
     "translation": "Netačan opis ne škodi"
   }
+];
+
+// In an answer, a nested array renders as a bulleted list.
+export const faq = [
+  {
+    q: "Kako da zakažem sastanak?",
+    a: [
+      "Pozovite ili pišite direktno advokatu kome želite da se obratite. Telefoni i adrese e-pošte svih advokata nalaze se na stranici Kontakt. Sastanak je u kancelariji u Ulici Maksima Gorkog 10A, u vreme koje dogovorimo.",
+    ],
+    link: { path: "/kontakt/", label: "Kontakt advokata" },
+  },
+  {
+    q: "Kome od advokata da se obratim?",
+    a: [
+      "Iskustvo i sertifikati svakog advokata navedeni su u biografijama na početnoj strani. Ako niste sigurni, pišite bilo kome od nas i ukratko opišite o čemu se radi.",
+    ],
+    link: { path: "/#tim", label: "Naš tim" },
+  },
+  {
+    q: "Šta da napišem u prvoj poruci?",
+    a: [
+      "U nekoliko rečenica opišite o čemu se radi i ko je na drugoj strani. Ako imate rok za odgovor ili žalbu, ili zakazano ročište, navedite datum. Napišite i kako vas je najlakše dobiti. Dokumente ne morate slati unapred. Ponesite ih na sastanak.",
+    ],
+  },
+  {
+    q: "Šta da ponesem na prvi sastanak?",
+    a: [
+      "Na prvi sastanak ponesite:",
+      [
+        "ličnu kartu ili pasoš;",
+        "sve dokumente u vezi sa predmetom: ugovore, rešenja, presude, tužbe, pozive, opomene, račune i prepisku;",
+        "kratak pregled događaja po datumima;",
+        "imena i adrese drugih strana, ako ih znate.",
+      ],
+    ],
+  },
+  {
+    q: "Da li se prvi razgovor sa advokatom naplaćuje?",
+    a: [
+      "Tarifa o nagradama i naknadama troškova za rad advokata predviđa nagradu i za usmeni savet. Koliko košta razgovor u vašem slučaju, pitajte kada zakazujete sastanak.",
+    ],
+  },
+  {
+    q: "Koliko košta vođenje postupka?",
+    a: [
+      "Zavisi od vrste postupka, vrednosti spora ili zaprećene kazne i broja radnji koje advokat preduzme, kao što su podnesci, ročišta i žalbe. Nagrada se obračunava prema advokatskoj tarifi, a drugačiji iznos može se ugovoriti pismeno. Pre nego što advokatu date punomoćje, pitajte koje troškove možete da očekujete.",
+    ],
+  },
+  {
+    q: "Da li je sudska taksa isto što i trošak advokata?",
+    a: [
+      "Nije. Sudska taksa se plaća sudu za tužbu, presudu, žalbu i druge radnje, prema Zakonu o sudskim taksama. Nagrada advokatu je poseban trošak. U nekim postupcima dolaze i troškovi veštačenja, izvršitelja i drugi.",
+      "Stranka koja izgubi parnicu po pravilu je dužna da protivnoj stranci naknadi troškove postupka.",
+    ],
+    link: { path: "/sudska-taksa/", label: "Kalkulator sudske takse" },
+  },
+  {
+    q: "Stigla mi je odluka i teče rok. Šta da radim?",
+    a: [
+      "Javite se što pre, najbolje telefonom. Rokovi za žalbu su kratki, često osam ili 15 dana, a neki i kraći. Ako rok propustite, po pravilu gubite pravo na žalbu. Zapišite datum kada ste odluku primili i sačuvajte kovertu u kojoj je stigla.",
+    ],
+  },
+  {
+    q: "Da li je ono što kažem advokatu poverljivo?",
+    a: ["Jeste. Po Zakonu o advokaturi advokat je dužan da kao tajnu čuva sve što mu je stranka poverila."],
+  },
+  {
+    q: "Da li možemo da razgovaramo na engleskom?",
+    a: ["Možete, sa advokatom Davorom Marićem. On govori engleski, a služi se i ruskim."],
+  },
 ];
 
 export const articles = [

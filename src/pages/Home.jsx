@@ -216,11 +216,11 @@ export function Home() {
   return (
     <>
       <Hero />
-      <Sayings />
       <About />
       <Values />
       <Fields />
       <Team />
+      <Sayings />
       <LatestArticles />
     </>
   );
