@@ -1,0 +1,39 @@
+name: Deploy production over FTPS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.advokatunovomsadu.rs/
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm audit --omit=dev --audit-level=high
+      - run: npm test
+      - run: npm run build
+      - run: sudo apt-get update -q && sudo apt-get install -y -q lftp
+      # The certificate covers the Plesk host name, not the site domain.
+      # .well-known holds the Let's Encrypt challenge that renews the site certificate.
+      - run: >-
+          lftp --env-password -u "$FTP_USERNAME" webhosting15.oblaci.rs -e "
+          set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate true;
+          mirror --reverse --delete --verbose --exclude-glob .well-known/ dist/ /;
+          bye"
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
