@@ -36,6 +36,8 @@ export function Article({ article: a }) {
           {a.body.map((b, i) =>
             b.h2 ? (
               <h2 key={i}>{b.h2}</h2>
+            ) : b.h3 ? (
+              <h3 key={i}>{b.h3}</h3>
             ) : b.ul ? (
               <ul key={i}>
                 {b.ul.map((li, j) => (

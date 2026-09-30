@@ -27,7 +27,7 @@ Lawyers write the articles themselves. Guide them to a finished article; do not 
 - `slug`: the title in lowercase ASCII with hyphens (č/ć→c, š→s, ž→z, đ→dj).
 - `lede`: 120–160 characters that answer the question in plain words. It is also the Google snippet.
 - `tag`: one of the tags in `src/content.test.js`. Add a new legal area there only on purpose.
-- `body`: open with a paragraph that answers the question directly. Use paragraphs of 2–4 sentences, a `{ h2: "…" }` subheading every 3–5 paragraphs, phrased the way clients ask, and `{ ul: ["…"] }` lists for documents, steps and conditions. Plain text only: no HTML, bold or links. Cite laws by full name and article. Mention Novi Sad only where it is natural.
+- `body`: open with a paragraph that answers the question directly. Use paragraphs of 2–4 sentences, a `{ h2: "…" }` subheading every 3–5 paragraphs, phrased the way clients ask, `{ h3: "…" }` only for parts inside an `h2` section, and `{ ul: ["…"] }` lists for documents, steps and conditions. Plain text only: no HTML, bold or links. Cite laws by full name and article. Mention Novi Sad only where it is natural.
 - `img`: a landscape photo the firm owns or has licensed, at least 1200px wide. Save it as `.webp` under about 100 KB in `src/assets/images/` and import it in `content.js`.
 - `npm test` checks slug, tag, title and lede length and body format. Then check the article in `npm run preview` and publish through a PR as usual.
 
