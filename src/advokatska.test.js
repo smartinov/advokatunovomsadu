@@ -20,23 +20,23 @@ test("civil brackets follow Tarifni broj 13 at 50 RSD per point, upper limit inc
   assert.deepEqual(attorneyFee({ mode: "parnica", action: "tuzba", value: 33_350_001 }), { over: true });
 });
 
-test("civil action factors", () => {
+test("civil action factors; hearings include the first hour of attendance", () => {
   assert.equal(civil("odgovor", 500_000), 15_000);
-  assert.equal(civil("rociste", 500_000), 15_000);
-  assert.equal(civil("rociste-odlozeno", 500_000), 7_500);
+  assert.equal(civil("rociste", 500_000), 20_000);
+  assert.equal(civil("rociste-odlozeno", 500_000), 12_500);
   assert.equal(civil("podnesak", 500_000), 7_500);
   assert.equal(civil("pravni-lek", 500_000), 30_000);
-  assert.equal(attorneyFee({ mode: "parnica", action: "rociste-odlozeno", value: 1_000_000 }).points, 187.5);
+  assert.equal(attorneyFee({ mode: "parnica", action: "rociste-odlozeno", value: 1_000_000 }).points, 287.5);
 });
 
 test("criminal fees follow Tarifni broj 1 by zaprećena kazna", () => {
-  assert.equal(criminal("pretres", "do-3"), 30_000);
-  assert.equal(criminal("pretres", "do-5"), 37_500);
-  assert.equal(criminal("pretres", "do-10"), 50_000);
-  assert.equal(criminal("pretres", "do-15"), 75_000);
-  assert.equal(criminal("pretres", "preko-15"), 100_000);
-  assert.equal(criminal("pretres", "dozivotni"), 125_000);
-  assert.equal(criminal("pretres-odlozen", "do-5"), 18_750);
+  assert.equal(criminal("pretres", "do-3"), 35_000);
+  assert.equal(criminal("pretres", "do-5"), 42_500);
+  assert.equal(criminal("pretres", "do-10"), 55_000);
+  assert.equal(criminal("pretres", "do-15"), 80_000);
+  assert.equal(criminal("pretres", "preko-15"), 105_000);
+  assert.equal(criminal("pretres", "dozivotni"), 130_000);
+  assert.equal(criminal("pretres-odlozen", "do-5"), 23_750);
   assert.equal(criminal("prijava", "do-5"), 37_500);
   assert.equal(criminal("krivicni-podnesak", "do-5"), 18_750);
   assert.equal(criminal("zalba", "do-5"), 75_000);

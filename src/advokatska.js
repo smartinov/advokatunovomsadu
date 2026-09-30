@@ -4,8 +4,10 @@ import { positiveInt } from "./calc.js";
 // The tariff states both fees and dispute-value limits in poeni, so a new point value rescales both.
 
 export const LAW = "Tarifa o nagradama i naknadama troškova za rad advokata (Sl. glasnik RS 43/2023 i 56/2025)";
-export const VERIFIED_ON = "29. 9. 2026.";
+export const VERIFIED_ON = "30. 9. 2026.";
 export const POINT_VALUE = 50; // Član 15.
+// Tarifni brojevi 3 i 15: attending a hearing, held or not, adds 100 poena per started hour; the fee counts the first hour.
+export const ATTENDANCE_POINTS = 100;
 
 export const SOURCES = [
   { label: "Tarifa o nagradama i naknadama troškova za rad advokata, prečišćen tekst, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/drugeorganizacije/tarifa/2023/43/1/reg" },
@@ -52,14 +54,14 @@ export const ACTIONS = {
   parnica: [
     { id: "tuzba", label: "Tužba ili protivtužba", factor: 1, share: "puna nagrada", basis: "Tarifni broj 13" },
     { id: "odgovor", label: "Odgovor na tužbu ili drugi obrazloženi podnesak", factor: 1, share: "puna nagrada", basis: "Tarifni broj 13" },
-    { id: "rociste", label: "Zastupanje na održanom ročištu", factor: 1, share: "puna nagrada", basis: "Tarifni broj 15" },
-    { id: "rociste-odlozeno", label: "Ročište koje nije održano", factor: 1 / 2, share: "polovina nagrade", basis: "Tarifni broj 15" },
+    { id: "rociste", label: "Zastupanje na održanom ročištu", factor: 1, share: "puna nagrada", basis: "Tarifni broj 15", attendance: true },
+    { id: "rociste-odlozeno", label: "Ročište koje nije održano", factor: 1 / 2, share: "polovina nagrade", basis: "Tarifni broj 15", attendance: true },
     { id: "podnesak", label: "Ostali podnesci", factor: 1 / 2, share: "polovina nagrade", basis: "Tarifni broj 13" },
     { id: "pravni-lek", label: "Žalba, revizija ili odgovor na njih", factor: 2, share: "nagrada uvećana za 100%", basis: "Tarifni broj 16" },
   ],
   krivicni: [
-    { id: "pretres", label: "Odbrana na održanom glavnom pretresu", factor: 1, share: "puna nagrada", basis: "Tarifni broj 3" },
-    { id: "pretres-odlozen", label: "Glavni pretres koji nije održan", factor: 1 / 2, share: "polovina nagrade", basis: "Tarifni broj 3" },
+    { id: "pretres", label: "Odbrana na održanom glavnom pretresu", factor: 1, share: "puna nagrada", basis: "Tarifni broj 3", attendance: true },
+    { id: "pretres-odlozen", label: "Glavni pretres koji nije održan", factor: 1 / 2, share: "polovina nagrade", basis: "Tarifni broj 3", attendance: true },
     { id: "prijava", label: "Krivična prijava, privatna tužba ili pismena odbrana", factor: 1, share: "puna nagrada", basis: "Tarifni broj 4" },
     { id: "krivicni-podnesak", label: "Ostali podnesci", factor: 1 / 2, share: "polovina nagrade", basis: "Tarifni broj 4" },
     { id: "zalba", label: "Žalba protiv presude", factor: 2, share: "nagrada uvećana za 100%", basis: "Tarifni broj 5" },
@@ -80,8 +82,9 @@ export function attorneyFee({ mode, action, value, penalty }) {
     base = PENALTIES.find((p) => p.id === penalty)?.points;
     if (!base) return null;
   }
-  const points = base * a.factor;
-  return { base, points, total: points * POINT_VALUE, action: a };
+  const attendance = a.attendance ? ATTENDANCE_POINTS : 0;
+  const points = base * a.factor + attendance;
+  return { base, attendance, points, total: points * POINT_VALUE, action: a };
 }
 
 // Shareable calculation: ?postupak=parnica&radnja=tuzba&vrednost=500000 or ?postupak=krivicni&radnja=pretres&kazna=do-5.
