@@ -190,6 +190,16 @@ export const faq = [
     link: { path: "/kontakt/", label: "Kontakt advokata" },
   },
   {
+    q: "Da li konsultacije mogu da se obave telefonom ili onlajn?",
+    a: ["Mogu. Konsultacije obavljamo i telefonom ili video-pozivom. Termin dogovorite direktno sa advokatom."],
+  },
+  {
+    q: "Da li zastupate klijente van Novog Sada i klijente koji žive u inostranstvu?",
+    a: [
+      "Da. Zastupamo klijente pred sudovima i organima u celoj Srbiji, i klijente koji žive u inostranstvu. Veći deo dogovora može da se obavi telefonom i e-poštom.",
+    ],
+  },
+  {
     q: "Kome od advokata da se obratim?",
     a: [
       "Iskustvo i sertifikati svakog advokata navedeni su u biografijama na početnoj strani. Ako niste sigurni, pišite bilo kome od nas i ukratko opišite o čemu se radi.",
@@ -227,9 +237,9 @@ export const faq = [
     ],
   },
   {
-    q: "Da li je sudska taksa isto što i trošak advokata?",
+    q: "Koje troškove, osim advokatske naknade, mogu da očekujem?",
     a: [
-      "Nije. Sudska taksa se plaća sudu za tužbu, presudu, žalbu i druge radnje, prema Zakonu o sudskim taksama. Nagrada advokatu je poseban trošak. U nekim postupcima dolaze i troškovi veštačenja, izvršitelja i drugi.",
+      "Pre svega sudsku taksu, koja se plaća sudu za tužbu, presudu, žalbu i druge radnje, prema Zakonu o sudskim taksama. U nekim postupcima dolaze i troškovi veštačenja, izvršitelja i drugi.",
       "Stranka koja izgubi parnicu po pravilu je dužna da protivnoj stranci naknadi troškove postupka.",
     ],
     link: { path: "/sudska-taksa/", label: "Kalkulator sudske takse" },
