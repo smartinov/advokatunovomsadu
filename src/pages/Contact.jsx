@@ -72,6 +72,12 @@ export function Contact() {
               </p>
             </div>
           ))}
+          <div className="info-block">
+            <p className="label">Pripravnici</p>
+            <p>
+              <a href={href("/pripravnici/")}>Prijava za advokatske pripravnike</a>
+            </p>
+          </div>
         </div>
 
         <form className="contact-form" onSubmit={onSubmit} aria-labelledby="form-title">

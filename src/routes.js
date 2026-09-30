@@ -27,7 +27,7 @@ export const routes = [
   {
     path: "/kalkulatori/",
     page: "calculators",
-    title: "Pravni kalkulatori | Advokati u Novom Sadu",
+    title: "Kalkulatori troškova | Advokati u Novom Sadu",
     description:
       "Kalkulatori sudske takse, advokatske i javnoizvršiteljske tarife, naknada APR-a, taksi za katastar i poreza na prenos, nasleđe i poklon.",
   },
@@ -85,6 +85,13 @@ export const routes = [
     title: "Česta pitanja | Advokati u Novom Sadu",
     description:
       "Kako zakazati sastanak sa advokatom u Novom Sadu, šta poneti na prvi sastanak i kako se obračunavaju troškovi advokata i sudske takse.",
+  },
+  {
+    path: "/pripravnici/",
+    page: "trainees",
+    title: "Advokatski pripravnici | Advokati u Novom Sadu",
+    description:
+      "Prijava za pripravnički staž u advokatskoj kancelariji Marić, Nedić i Biro u Novom Sadu. Pošaljite biografiju e-poštom.",
   },
   {
     path: "/kontakt/",

@@ -129,7 +129,8 @@ function Footer() {
         <span>Advokatska kancelarija Marić, Nedić i Biro</span>
         <span>
           <a href={href("/tekstovi/")}>Stručni tekstovi</a> · <a href={href("/kalkulatori/")}>Kalkulatori</a> ·{" "}
-          <a href={href("/cesta-pitanja/")}>Česta pitanja</a> · <a href={href("/kontakt/")}>Kontakt</a>
+          <a href={href("/cesta-pitanja/")}>Česta pitanja</a> · <a href={href("/pripravnici/")}>Pripravnici</a> ·{" "}
+          <a href={href("/kontakt/")}>Kontakt</a>
         </span>
       </div>
     </footer>
