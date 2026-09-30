@@ -50,6 +50,9 @@
 /* Left-aligned under the title and cover; the measure caps line length. */
 .article-body { max-width: 720px; padding-block: clamp(48px, 6vw, 88px); }
 .article-body p { font-size: 19px; line-height: 1.75; color: var(--ink); margin-bottom: 1.3em; }
+.article-body > h2 { font-size: clamp(26px, 3vw, 34px); margin: 1.6em 0 0.6em; }
+.article-body > ul { font-size: 19px; line-height: 1.75; color: var(--ink); margin: 0 0 1.3em; padding-left: 1.2em; }
+.article-body > ul li { margin-bottom: 0.4em; }
 .article-body > p:first-of-type::first-letter { font-family: var(--serif); float: left; font-size: 4.6em; line-height: 0.85; margin: 6px 12px 0 0; color: var(--copper); }
 .cta-card { margin-top: 56px; padding: 40px; background: var(--bg-deep); color: var(--on-deep); display: grid; gap: 16px; justify-items: start; }
 .cta-card h2 { font-size: 30px; }
@@ -138,7 +141,7 @@
 @media (max-width: 640px) {
   .article-row { grid-template-columns: 1fr; gap: 14px; }
   .article-cover { aspect-ratio: 16 / 10; }
-  .article-body p { font-size: 17px; }
+  .article-body p, .article-body > ul { font-size: 17px; }
   .calc-card, .calc-result { padding: 28px 22px; }
   .contact-form .row { grid-template-columns: 1fr; }
   .cta-card { padding: 28px 22px; }
