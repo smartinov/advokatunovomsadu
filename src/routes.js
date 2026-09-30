@@ -87,6 +87,13 @@ export const routes = [
       "Kako zakazati sastanak sa advokatom u Novom Sadu, šta poneti na prvi sastanak i kako se obračunavaju troškovi advokata i sudske takse.",
   },
   {
+    path: "/pripravnici/",
+    page: "trainees",
+    title: "Advokatski pripravnici | Advokati u Novom Sadu",
+    description:
+      "Prijava za pripravnički staž u advokatskoj kancelariji Marić, Nedić i Biro u Novom Sadu. Pošaljite biografiju e-poštom.",
+  },
+  {
     path: "/kontakt/",
     page: "contact",
     title: "Kontakt | Advokati Marić, Nedić i Biro, Novi Sad",

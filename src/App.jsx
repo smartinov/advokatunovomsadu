@@ -22,6 +22,7 @@ import { CadastreFee } from "./pages/CadastreFee";
 import { PropertyTax } from "./pages/PropertyTax";
 import { Contact } from "./pages/Contact";
 import { Faq } from "./pages/Faq";
+import { Trainees } from "./pages/Trainees";
 
 function NotFound() {
   return (
@@ -51,6 +52,7 @@ const PAGES = {
   propertyTax: PropertyTax,
   contact: Contact,
   faq: Faq,
+  trainees: Trainees,
   notfound: NotFound,
 };
 
