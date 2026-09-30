@@ -32,14 +32,11 @@ export const team = [
     "email": "adv.davormaric@gmail.com",
     "phone": "+381637457275",
     "bio": [
-      "Advokat Davor Marić je rođen 1989. godine u Sarajevu. Nakon završene Gimnazije „Jovan Jovanović Zmaj“ u Novom Sadu upisuje Pravni fakultet Univerziteta u Novom Sadu 2008. godine – smer opšti, na kojem i diplomira 08.02.2013. godine.",
-      "Pripravničku vežbu je obavljao u advokatskoj kancelariji od 2013. godine do 2016. godine",
-      "Zvanje Master pravnika stiče 2014. godine nakon što je odbranio završni master rad na temu „Pozitivne obaveze država u pogledu zaštite prava na život“ na Pravnom fakultetu Univerziteta u Novom Sadu.",
-      "Pravosudni ispit je položio 2016. godine.",
-      "Advokatski ispit je položio 2016. godine.",
-      "Od 14.02.2017. godine je upisan u imenik advokata i član je Advokatske komore Vojvodine.",
-      "Poseduje sertifikate za odbranu maloletnih učinilaca krivičnih dela i zastupanje maloletnih oštećenih lica, sertifikat za zastupanje klijenata u medijaciji, sertifikat o završenoj obuci pravna zaštita od nasilja u porodici.",
-      "Pored maternjeg srpskog jezika govori još i engleski jezik, a služi se ruskim jezikom."
+      "Davor Marić je advokat u Novom Sadu i član Advokatske komore Vojvodine od 2017. godine.",
+      "Diplomirao je na Pravnom fakultetu Univerziteta u Novom Sadu 2013. godine, a na istom fakultetu 2014. godine stekao je zvanje master pravnika, odbranivši master rad na temu „Pozitivne obaveze država u pogledu zaštite prava na život“.",
+      "Pripravnički staž obavio je u advokatskoj kancelariji u periodu od 2013. do 2016. godine. Pravosudni i advokatski ispit položio je 2016. godine, a u imenik advokata upisan je 14. februara 2017. godine.",
+      "Poseduje sertifikate za odbranu maloletnih učinilaca krivičnih dela i zastupanje maloletnih oštećenih lica, kao i za zastupanje klijenata u medijaciji. Završio je i obuku iz oblasti pravne zaštite od nasilja u porodici.",
+      "Pored maternjeg srpskog, govori engleski jezik, a služi se i ruskim jezikom."
     ]
   },
   {
@@ -249,7 +246,7 @@ export const faq = [
   },
   {
     q: "Da li možemo da razgovaramo na engleskom?",
-    a: ["Možete, sa advokatom Davorom Marićem. On govori engleski, a služi se i ruskim."],
+    a: ["Možete, sa svakim od naših advokata. Advokat Davor Marić služi se i ruskim."],
   },
 ];
 
