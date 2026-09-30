@@ -128,7 +128,10 @@ export function Contact() {
           </div>
           <div className="form-actions">
             <button type="submit" className="btn btn-primary">
-              Otvori poruku u programu za e-poštu
+              {/* One flex item: the button's gap would otherwise split the label apart. */}
+              <span>
+                Otvori poruku u programu za <span className="nowrap">e-poštu</span>
+              </span>
             </button>
             <button type="button" className="btn btn-ghost" onClick={onCopy}>
               Kopiraj poruku

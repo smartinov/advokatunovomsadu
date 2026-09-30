@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "./Logo";
 import { office, team } from "../content";
 
@@ -24,10 +24,10 @@ function navHref(path, page) {
   return page === "home" && path.startsWith("/#") ? path.slice(1) : href(path);
 }
 
-function Header({ page }) {
+function Header({ page, open, setOpen }) {
   const overHero = page === "home";
   const [dark, setDark] = useState(overHero);
-  const [open, setOpen] = useState(false);
+  const toggle = useRef(null);
 
   useEffect(() => {
     if (!overHero) return;
@@ -41,10 +41,21 @@ function Header({ page }) {
   useEffect(() => {
     document.body.classList.toggle("nav-open", open);
     if (!open) return;
-    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      toggle.current.focus();
+    };
+    // Past the menu breakpoint the toggle is hidden, so an open menu could not be closed.
+    const wide = window.matchMedia("(min-width: 1081px)");
+    const onWide = (e) => e.matches && setOpen(false);
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [open]);
+    wide.addEventListener("change", onWide);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
+    };
+  }, [open, setOpen]);
 
   const links = (onClick) =>
     NAV.map((n) => (
@@ -73,6 +84,7 @@ function Header({ page }) {
           {links()}
         </nav>
         <button
+          ref={toggle}
           className="menu-toggle"
           type="button"
           aria-controls="mobile-nav"
@@ -99,9 +111,9 @@ function Header({ page }) {
   );
 }
 
-function Footer() {
+function Footer({ inert }) {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" inert={inert}>
       <div className="footer-inner">
         <div className="footer-col">
           <div className="footer-brand">
@@ -141,16 +153,18 @@ function Footer() {
 export const formatPhone = (p) => p.replace(/^\+381(\d{2})(\d{3})(\d+)$/, "+381 $1 $2 $3");
 
 export function Layout({ page, children }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
       <a href="#main" className="skip-link">
         Preskoči na sadržaj
       </a>
-      <Header page={page} />
-      <main id="main" tabIndex={-1}>
+      <Header page={page} open={menuOpen} setOpen={setMenuOpen} />
+      {/* The open menu covers the page; inert keeps keyboard focus out of what is hidden behind it. */}
+      <main id="main" tabIndex={-1} inert={menuOpen}>
         {children}
       </main>
-      <Footer />
+      <Footer inert={menuOpen} />
     </>
   );
 }

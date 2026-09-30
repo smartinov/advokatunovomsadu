@@ -4,3 +4,8 @@ RewriteCond %{HTTP_HOST} ^advokatunovomsadu\.rs$ [NC]
 RewriteRule ^ https://www.advokatunovomsadu.rs%{REQUEST_URI} [R=301,L]
 
 ErrorDocument 404 /404.html
+
+# No includeSubDomains: other subdomains of the domain are not served from here.
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
