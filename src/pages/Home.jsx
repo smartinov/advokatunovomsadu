@@ -82,7 +82,7 @@ function About() {
       <div className="container">
         <div className="about-text">
           <p className="label">O nama</p>
-          <h2>Advokati u Novom Sadu</h2>
+          <h2>Advokatska kancelarija Marić, Nedić i Biro</h2>
           <p>
             Advokat Dijana Biro, advokat Davor Marić i advokat Milan Nedić bave se stručnim pružanjem pravne pomoći u
             velikom broju oblasti prava, pred sudovima svih nadležnosti, kao i pred svim drugim državnim organima i
