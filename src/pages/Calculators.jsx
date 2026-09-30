@@ -1,6 +1,23 @@
 import { routes } from "../routes";
 import { href } from "../components/Layout";
 
+export function CalcHub({ Heading = "h2", className = "" }) {
+  return (
+    <ul className={`calc-hub ${className}`}>
+      {routes
+        .filter((r) => r.hub)
+        .map((r) => (
+          <li key={r.path}>
+            <a href={href(r.path)}>
+              <Heading>{r.title.split(" | ")[0]}</Heading>
+              <p>{r.hub}</p>
+            </a>
+          </li>
+        ))}
+    </ul>
+  );
+}
+
 export function Calculators() {
   return (
     <>
@@ -15,18 +32,7 @@ export function Calculators() {
         </div>
       </section>
       <section className="list-section">
-        <ul className="calc-hub container">
-          {routes
-            .filter((r) => r.hub)
-            .map((r) => (
-              <li key={r.path}>
-                <a href={href(r.path)}>
-                  <h2>{r.title.split(" | ")[0]}</h2>
-                  <p>{r.hub}</p>
-                </a>
-              </li>
-            ))}
-        </ul>
+        <CalcHub className="container" />
       </section>
     </>
   );
