@@ -27,7 +27,7 @@ export const routes = [
   {
     path: "/kalkulatori/",
     page: "calculators",
-    title: "Pravni kalkulatori | Advokati u Novom Sadu",
+    title: "Kalkulatori troškova | Advokati u Novom Sadu",
     description:
       "Kalkulatori sudske takse, advokatske i javnoizvršiteljske tarife, naknada APR-a, taksi za katastar i poreza na prenos, nasleđe i poklon.",
   },
