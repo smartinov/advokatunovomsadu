@@ -49,18 +49,13 @@ function SayingText({ saying }) {
 
 function Sayings() {
   const [i, setI] = useState(0);
-  const [auto, setAuto] = useState(true);
   const [held, setHeld] = useState(false);
 
   useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) setAuto(false);
-  }, []);
-
-  useEffect(() => {
-    if (!auto || held) return;
+    if (held || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = setInterval(() => setI((n) => (n + 1) % sayings.length), 8000);
     return () => clearInterval(timer);
-  }, [auto, held]);
+  }, [held]);
 
   return (
     <section
@@ -68,11 +63,8 @@ function Sayings() {
       aria-label="Latinske pravne izreke"
       onMouseEnter={() => setHeld(true)}
       onMouseLeave={() => setHeld(false)}
-      onFocus={() => setHeld(true)}
-      onBlur={() => setHeld(false)}
     >
-      {/* Rotation stays silent for screen readers; only a user-chosen saying is announced. */}
-      <blockquote lang="la" aria-live={auto ? "off" : "polite"}>
+      <blockquote lang="la">
         <div className="saying-slot" aria-hidden="true">
           <SayingText saying={tallestSaying} />
         </div>
@@ -80,29 +72,6 @@ function Sayings() {
           <SayingText saying={sayings[i]} />
         </div>
       </blockquote>
-      <div className="saying-controls">
-        <button
-          type="button"
-          className="saying-btn"
-          onClick={() => {
-            // Hover and focus already sit on this button, so an explicit start must override them.
-            setHeld(false);
-            setAuto(!auto);
-          }}
-        >
-          {auto ? "Pauziraj" : "Pokreni"}
-        </button>
-        <button
-          type="button"
-          className="saying-btn"
-          onClick={() => {
-            setAuto(false);
-            setI((i + 1) % sayings.length);
-          }}
-        >
-          Sledeća izreka ({i + 1}/{sayings.length})
-        </button>
-      </div>
     </section>
   );
 }
