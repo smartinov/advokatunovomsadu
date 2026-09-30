@@ -20,12 +20,16 @@ for (const a of articles) {
     assert.ok(a.lede.length >= 50 && a.lede.length <= 160, `lede is ${a.lede.length} characters, expected 50-160`);
     assert.match(a.img, /\.webp$/, "img: import a .webp from src/assets/images");
     assert.equal(typeof a.body[0], "string", "body starts with a paragraph");
+    let seenH2 = false;
     for (const b of a.body) {
       const ok =
         (typeof b === "string" && b.trim().length > 0) ||
         (typeof b?.h2 === "string" && b.h2.length > 0) ||
+        (typeof b?.h3 === "string" && b.h3.length > 0) ||
         (Array.isArray(b?.ul) && b.ul.length > 0 && b.ul.every((li) => typeof li === "string"));
-      assert.ok(ok, `body item must be a paragraph, { h2 } or { ul: [...] }: ${JSON.stringify(b).slice(0, 80)}`);
+      assert.ok(ok, `body item must be a paragraph, { h2 }, { h3 } or { ul: [...] }: ${JSON.stringify(b).slice(0, 80)}`);
+      seenH2 ||= Boolean(b?.h2);
+      assert.ok(!b?.h3 || seenH2, `{ h3 } must follow an { h2 }: ${b?.h3}`);
     }
   });
 }

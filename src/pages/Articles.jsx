@@ -2,7 +2,7 @@ import { articles } from "../content";
 import { href } from "../components/Layout";
 
 export const readingMinutes = (a) =>
-  Math.max(1, Math.round(a.body.flatMap((b) => b.ul ?? b.h2 ?? b).join(" ").split(/\s+/).length / 200));
+  Math.max(1, Math.round(a.body.flatMap((b) => b.ul ?? b.h2 ?? b.h3 ?? b).join(" ").split(/\s+/).length / 200));
 
 export function ArticleCard({ article: a }) {
   return (
