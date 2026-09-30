@@ -221,12 +221,17 @@ body.nav-open { overflow: hidden; }
   padding: 56px var(--pad-x);
   text-align: center;
 }
-.sayings blockquote { margin: 0; }
+/* The tallest saying sits invisibly in the same cell so rotation never moves the content below. */
+.sayings blockquote { margin: 0; display: grid; }
+.saying-slot, .saying { grid-area: 1 / 1; }
+.saying-slot { visibility: hidden; }
+.saying { animation: saying-in 0.6s ease; }
+@keyframes saying-in { from { opacity: 0; } }
 .saying-latin { font-family: var(--serif); font-style: italic; font-size: clamp(26px, 3.2vw, 42px); }
 .saying-translation { margin-top: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper-soft); }
-.saying-next {
+.saying-controls { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.saying-btn {
   min-height: 44px;
-  margin-top: 24px;
   background: none;
   border: 1px solid rgba(235, 232, 225, 0.35);
   color: var(--on-deep);
@@ -237,7 +242,7 @@ body.nav-open { overflow: hidden; }
   text-transform: uppercase;
   cursor: pointer;
 }
-.saying-next:hover { border-color: var(--copper-soft); }
+.saying-btn:hover { border-color: var(--copper-soft); }
 
 /* ----- About ----- */
 .about-text { max-width: 820px; }
