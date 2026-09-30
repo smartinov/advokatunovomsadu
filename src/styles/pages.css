@@ -45,8 +45,8 @@
 @keyframes read-progress { to { transform: scaleX(1); } }
 .article-meta { margin-top: 24px; display: flex; gap: 24px; flex-wrap: wrap; }
 .article-meta .tag { color: var(--copper-text); }
-/* The text column's width: wider would upscale the 640px source photos. */
-.article-cover { max-width: 720px; aspect-ratio: 16 / 9; overflow: hidden; margin-top: 40px; }
+/* Full content width as a wide banner, the ratio the img's width/height attributes declare. */
+.article-cover { aspect-ratio: 1200 / 514; overflow: hidden; margin-top: 40px; }
 .article-cover img { width: 100%; height: 100%; object-fit: cover; }
 /* The measure caps line length; the sidebar uses the rest of the row so the column doesn't sit alone on the left. */
 .article-layout { display: grid; grid-template-columns: minmax(0, 720px) 320px; justify-content: space-between; gap: clamp(32px, 4vw, 64px); }
@@ -139,7 +139,7 @@
 .form-actions .btn-ghost { color: var(--ink); }
 .form-actions .btn-ghost:hover { background: var(--ink); color: var(--bg); }
 
-/* Below this the sidebar would squeeze the text narrower than the cover above it. */
+/* Below this the sidebar would squeeze the text under its 720px measure. */
 @media (max-width: 1080px) {
   .article-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .article-body { padding-bottom: 0; }
@@ -150,6 +150,7 @@
   .calc-wrap, .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .calc-result { position: static; }
   .article-row { grid-template-columns: 160px 1fr; }
+  .article-cover { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 640px) {
   .article-row { grid-template-columns: 1fr; gap: 14px; }
