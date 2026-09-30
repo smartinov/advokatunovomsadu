@@ -33,9 +33,19 @@ export function Article({ article: a }) {
       </header>
       <div className="container">
         <div className="article-body">
-          {a.body.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+          {a.body.map((b, i) =>
+            b.h2 ? (
+              <h2 key={i}>{b.h2}</h2>
+            ) : b.ul ? (
+              <ul key={i}>
+                {b.ul.map((li, j) => (
+                  <li key={j}>{li}</li>
+                ))}
+              </ul>
+            ) : (
+              <p key={i}>{b}</p>
+            ),
+          )}
           <aside className="cta-card" aria-labelledby="cta-title">
             <h2 id="cta-title">Treba vam pravni savet?</h2>
             <p>Za savet o svom predmetu pozovite advokata ili mu pišite i dogovorite sastanak u kancelariji.</p>
