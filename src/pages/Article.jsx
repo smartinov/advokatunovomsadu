@@ -31,7 +31,7 @@ export function Article({ article: a }) {
           </div>
         </div>
       </header>
-      <div className="container">
+      <div className="container article-layout">
         <div className="article-body">
           {a.body.map((b, i) =>
             b.h2 ? (
@@ -48,6 +48,8 @@ export function Article({ article: a }) {
               <p key={i}>{b}</p>
             ),
           )}
+        </div>
+        <div className="article-aside">
           <aside className="cta-card" aria-labelledby="cta-title">
             <h2 id="cta-title">Treba vam pravni savet?</h2>
             <p>Za savet o svom predmetu pozovite advokata ili mu pišite i dogovorite sastanak u kancelariji.</p>
