@@ -1,4 +1,6 @@
-# Canonical URLs use www; send the bare domain there in one hop, also from http.
+# Canonical URLs use www.
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^advokatunovomsadu\.rs$ [NC]
 RewriteRule ^ https://www.advokatunovomsadu.rs%{REQUEST_URI} [R=301,L]
+
+ErrorDocument 404 /404.html
