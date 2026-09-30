@@ -28,8 +28,10 @@ CI runs only `npm test` and the build, so layout and content problems pass it. D
 - [ ] Redesign work compared side by side with the design, not only checked for breakage.
 - [ ] Content changes: confirmed by the firm, no invented dates, stats, hours or promises.
 - [ ] Merge only after the PR's `build` check has finished green; a pending check does not block the merge button.
-- [ ] After the Pages deploy, re-check the changed pages on the live URL.
+- [ ] After the Pages deploy, re-check the changed pages on the demo URL.
 
 ## Deployment
-- Pull requests are built and tested. Pushes to `main` also deploy the preview to GitHub Pages.
-- Production (www.advokatunovomsadu.rs) is hosted elsewhere and is not deployed from this repository.
+- Pull requests are built and tested. Pushes to `main` also deploy the demo to GitHub Pages (https://smartinov.github.io/advokatunovomsadu/). Every demo page is `noindex`, with its canonical pointing to production.
+- Production (https://www.advokatunovomsadu.rs/) is a Plesk subscription on `webhosting15.oblaci.rs`. Deploy it only by running the `Deploy production over FTPS` workflow from `main`, after checking the change on the demo. The workflow mirrors `dist/` into `httpdocs` and deletes remote files missing from the build, except `.well-known/`.
+- Credentials: the 1Password item `AdvokatUNovomSadu FTP github_publish` holds the FTP account; the Plesk panel login is in `AdvokatUNovomSadu`. The workflow reads `FTP_USERNAME` and `FTP_PASSWORD` from the `production` GitHub environment, which only `main` may deploy to.
+- Rollback: revert the bad commit on `main`, then run the workflow again.
