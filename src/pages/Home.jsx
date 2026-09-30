@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { articles, fields, sayings, team, values } from "../content";
 import { formatPhone, href } from "../components/Layout";
 import { ArticleCard } from "./Articles";
@@ -31,20 +31,78 @@ function Hero() {
   );
 }
 
+// ponytail: text length approximates rendered height; measure in the DOM if a saying still shifts the layout
+const tallestSaying = sayings.reduce((a, b) =>
+  b.latin.length + b.translation.length > a.latin.length + a.translation.length ? b : a,
+);
+
+function SayingText({ saying }) {
+  return (
+    <>
+      <p className="saying-latin">{saying.latin}</p>
+      <p className="saying-translation" lang="sr">
+        {saying.translation}
+      </p>
+    </>
+  );
+}
+
 function Sayings() {
   const [i, setI] = useState(0);
-  const s = sayings[i];
+  const [auto, setAuto] = useState(true);
+  const [held, setHeld] = useState(false);
+
+  useEffect(() => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) setAuto(false);
+  }, []);
+
+  useEffect(() => {
+    if (!auto || held) return;
+    const timer = setInterval(() => setI((n) => (n + 1) % sayings.length), 8000);
+    return () => clearInterval(timer);
+  }, [auto, held]);
+
   return (
-    <section className="sayings" aria-label="Latinske pravne izreke">
-      <blockquote lang="la" aria-live="polite">
-        <p className="saying-latin">{s.latin}</p>
-        <p className="saying-translation" lang="sr">
-          {s.translation}
-        </p>
+    <section
+      className="sayings"
+      aria-label="Latinske pravne izreke"
+      onMouseEnter={() => setHeld(true)}
+      onMouseLeave={() => setHeld(false)}
+      onFocus={() => setHeld(true)}
+      onBlur={() => setHeld(false)}
+    >
+      {/* Rotation stays silent for screen readers; only a user-chosen saying is announced. */}
+      <blockquote lang="la" aria-live={auto ? "off" : "polite"}>
+        <div className="saying-slot" aria-hidden="true">
+          <SayingText saying={tallestSaying} />
+        </div>
+        <div key={i} className="saying">
+          <SayingText saying={sayings[i]} />
+        </div>
       </blockquote>
-      <button type="button" className="saying-next" onClick={() => setI((i + 1) % sayings.length)}>
-        Sledeća izreka ({i + 1}/{sayings.length})
-      </button>
+      <div className="saying-controls">
+        <button
+          type="button"
+          className="saying-btn"
+          onClick={() => {
+            // Hover and focus already sit on this button, so an explicit start must override them.
+            setHeld(false);
+            setAuto(!auto);
+          }}
+        >
+          {auto ? "Pauziraj" : "Pokreni"}
+        </button>
+        <button
+          type="button"
+          className="saying-btn"
+          onClick={() => {
+            setAuto(false);
+            setI((i + 1) % sayings.length);
+          }}
+        >
+          Sledeća izreka ({i + 1}/{sayings.length})
+        </button>
+      </div>
     </section>
   );
 }
