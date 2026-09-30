@@ -182,6 +182,12 @@ export function AttorneyFee() {
                   </dt>
                   <dd>× {factorLabel(r.action.factor)}</dd>
                 </div>
+                {r.attendance > 0 && (
+                  <div>
+                    <dt>Prisustvo, prvi započeti sat ({r.action.basis})</dt>
+                    <dd>+ {r.attendance} poena</dd>
+                  </div>
+                )}
                 <div>
                   <dt>Vrednost poena (član 15)</dt>
                   <dd>
@@ -200,8 +206,12 @@ export function AttorneyFee() {
               <ul>
                 <li>Advokat koji je obveznik PDV-a na nagradu dodaje i PDV (član 13).</li>
                 <li>
-                  Za prisustvo na ročištu ili pretresu advokatu pripada i 100 poena za svaki započeti sat, što ovde nije
-                  uračunato.
+                  Za prisustvo na ročištu ili pretresu advokatu pripada i 100 poena za svaki započeti sat. U nagradu za
+                  ročište i pretres uračunat je prvi sat.
+                </li>
+                <li>
+                  Na nagradu za radnje obračunava se i paušalna naknada troškova od 2% za poštanske, telefonske i slične
+                  usluge (član 9).
                 </li>
                 <li>Kada advokat zastupa više stranaka, nagrada se za drugu i svaku narednu stranku uvećava za 50%.</li>
                 <li>
@@ -213,7 +223,7 @@ export function AttorneyFee() {
           </section>
         </div>
 
-        <Sources law={LAW} basis="tarifni brojevi 1, 3–5, 13, 15 i 16" verifiedOn={VERIFIED_ON} sources={SOURCES}>
+        <Sources law={LAW} basis="član 9, tarifni brojevi 1, 3–5, 13, 15 i 16" verifiedOn={VERIFIED_ON} sources={SOURCES}>
           nagrada zavisi i od toka postupka i dogovora sa advokatom.
         </Sources>
       </div>
