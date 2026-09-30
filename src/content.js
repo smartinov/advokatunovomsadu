@@ -258,6 +258,13 @@ export const faq = [
     q: "Da li možemo da razgovaramo na engleskom?",
     a: ["Možete, sa svakim od naših advokata. Advokat Davor Marić služi se i ruskim."],
   },
+  {
+    q: "Da li primate advokatske pripravnike?",
+    a: [
+      "Diplomirani pravnici koji žele da obave pripravnički staž u advokaturi mogu nam poslati prijavu e-poštom, sa biografijom (CV) i nekoliko rečenica o sebi.",
+    ],
+    link: { path: "/pripravnici/", label: "Prijava za pripravnike" },
+  },
 ];
 
 export const articles = [
