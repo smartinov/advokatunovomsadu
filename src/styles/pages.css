@@ -22,8 +22,8 @@
 /* ----- Calculators hub ----- */
 .calc-hub { list-style: none; margin-block: 0; padding-block: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 40px; }
 .calc-hub a { display: block; height: 100%; padding: 28px 0; border-top: 1px solid var(--rule); text-decoration: none; }
-.calc-hub h2 { font-size: clamp(22px, 2vw, 28px); }
-.calc-hub a:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.calc-hub :is(h2, h3) { font-size: clamp(22px, 2vw, 28px); }
+.calc-hub a:hover :is(h2, h3) { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 .calc-hub p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
 .article-row .meta { display: block; margin-bottom: 8px; }
 .article-row .tag { color: var(--copper-text); }

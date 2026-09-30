@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { articles, fields, sayings, team, values } from "../content";
 import { formatPhone, href } from "../components/Layout";
 import { ArticleCard } from "./Articles";
+import { CalcHub } from "./Calculators";
 
 function Hero() {
   return (
@@ -21,8 +22,8 @@ function Hero() {
           <a href={href("/kontakt/")} className="btn btn-primary">
             Kontakt advokata
           </a>
-          <a href={href("/sudska-taksa/")} className="btn btn-ghost">
-            Izračunajte sudsku taksu
+          <a href={href("/kalkulatori/")} className="btn btn-ghost">
+            Pravni kalkulatori
           </a>
         </div>
       </div>
@@ -187,6 +188,20 @@ function Team() {
   );
 }
 
+function Calculators() {
+  return (
+    <section className="section" id="kalkulatori">
+      <div className="container">
+        <div className="section-head">
+          <p className="label">Kalkulatori</p>
+          <h2>Takse, tarife i porezi</h2>
+        </div>
+      </div>
+      <CalcHub Heading="h3" className="container" />
+    </section>
+  );
+}
+
 function LatestArticles() {
   return (
     <section className="section more">
@@ -221,6 +236,7 @@ export function Home() {
       <Fields />
       <Team />
       <Sayings />
+      <Calculators />
       <LatestArticles />
     </>
   );
