@@ -1,7 +1,16 @@
 import { useState } from "react";
 import { LAW, MODES, RELATIONS, SOURCES, VERIFIED_ON, propertyTax, readQuery, toParams } from "../porez";
 import { rsd, parseRsd } from "../calc";
-import { ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
+import { Examples, ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
+
+const tax = (mode, relation, value) => propertyTax({ mode, relation, pdv: false, value }).total;
+const EXAMPLES = [
+  [`Kupoprodaja stana od ${rsd(5_000_000)} RSD, bez PDV-a`, tax("prenos", undefined, 5_000_000)],
+  [`Kupoprodaja stana od ${rsd(10_000_000)} RSD, bez PDV-a`, tax("prenos", undefined, 10_000_000)],
+  [`Nasleđe ${rsd(10_000_000)} RSD, dete ili bračni drug`, tax("nasledje", "potomak", 10_000_000)],
+  [`Nasleđe ${rsd(10_000_000)} RSD, brat ili sestra`, tax("nasledje", "drugi-red", 10_000_000)],
+  [`Poklon ${rsd(10_000_000)} RSD, lice koje nije u srodstvu`, tax("poklon", "ostali", 10_000_000)],
+];
 
 export function PropertyTax() {
   const [mode, setMode] = useState("prenos");
@@ -134,7 +143,9 @@ export function PropertyTax() {
                   ? "Unesite vrednost veću od nule."
                   : sale
                     ? "Iznos u dinarima, bez decimala."
-                    : "Tržišna vrednost umanjena za dugove i troškove iz člana 16, u dinarima bez decimala."}
+                    : mode === "nasledje"
+                      ? "Tržišna vrednost umanjena za dugove i troškove iz člana 16, u dinarima bez decimala."
+                      : "Tržišna vrednost poklona, bez umanjenja za dugove (član 16), u dinarima bez decimala."}
               </p>
             </div>
           </form>
@@ -153,7 +164,14 @@ export function PropertyTax() {
             {r && (
               <dl className="calc-breakdown">
                 <div>
-                  <dt>Osnovica: {sale ? "ugovorena cena" : "tržišna vrednost umanjena po članu 16"}</dt>
+                  <dt>
+                    Osnovica:{" "}
+                    {sale
+                      ? "ugovorena cena"
+                      : mode === "nasledje"
+                        ? "tržišna vrednost umanjena po članu 16"
+                        : "tržišna vrednost poklona (član 16)"}
+                  </dt>
                   <dd>{rsd(value)}</dd>
                 </div>
                 <div>
@@ -209,6 +227,7 @@ export function PropertyTax() {
           </section>
         </div>
 
+        <Examples rows={EXAMPLES} />
         <Sources
           law={LAW}
           basis="porez na nasleđe i poklon (članovi 14–22) i porez na prenos apsolutnih prava (članovi 23–42)"

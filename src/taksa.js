@@ -4,7 +4,7 @@ import { positiveInt } from "./calc.js";
 // Percentages apply to the whole dispute value, as the tariff text reads ("od vrednosti predmeta spora").
 
 export const LAW = "Zakon o sudskim taksama (Sl. glasnik RS 28/94 … 91/2025)";
-export const VERIFIED_ON = "29. 9. 2026.";
+export const VERIFIED_ON = "2026-10-28";
 
 export const SOURCES = [
   {
@@ -35,6 +35,9 @@ function commercialCourt(value) {
   return Math.min(275_000 + 0.005 * value, 420_000);
 }
 
+// Član 6: stamps start at 10 dinars, so 1 to 9 dinars round down to 0.
+const roundDown = (amount) => Math.floor(amount / 10) * 10;
+
 export const COURTS = [
   { id: "opsti", label: "Sud opšte nadležnosti", basis: "Tarifni broj 1 st. 1" },
   { id: "privredni", label: "Privredni sud", basis: "Tarifni broj 1 st. 2" },
@@ -45,9 +48,10 @@ export const ACTIONS = [
   {
     id: "platni-nalog",
     label: "Tužba sa predlogom za platni nalog",
-    // Half for the claim plus half for the payment order decision, both due on filing.
+    // Half for the claim plus half for the payment order decision: two fees, each rounded on its own.
     factor: 1,
-    share: "polovina za tužbu i polovina za rešenje o platnom nalogu, obe pri podnošenju",
+    parts: 2,
+    share: "polovina za tužbu i polovina za rešenje o platnom nalogu, koja se plaća pri podnošenju",
     basis: "Tarifni broj 1, napomena 2; Tarifni broj 2 st. 4 i napomena 8",
   },
   { id: "odgovor", label: "Odgovor na tužbu", factor: 1 / 2, share: "polovina takse", basis: "Tarifni broj 1 st. 3" },
@@ -64,8 +68,10 @@ export function courtFee({ court, action, value }) {
   const c = COURTS.find((x) => x.id === court);
   const a = ACTIONS.find((x) => x.id === action);
   if (!c || !a || !Number.isFinite(value) || value <= 0) return null;
-  const base = Math.round(court === "privredni" ? commercialCourt(value) : generalCourt(value));
-  return { base, total: Math.round(base * a.factor), court: c, action: a };
+  const full = court === "privredni" ? commercialCourt(value) : generalCourt(value);
+  const parts = a.parts ?? 1;
+  // base stays unrounded so the shown base × factor leads to the rounded total.
+  return { base: full, total: parts * roundDown((full * a.factor) / parts), court: c, action: a };
 }
 
 // Shareable calculation: ?sud=opsti&podnesak=tuzba&vrednost=500000. Unknown or invalid params are ignored.

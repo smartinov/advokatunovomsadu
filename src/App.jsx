@@ -17,6 +17,7 @@ import { Calculator } from "./pages/Calculator";
 import { Calculators } from "./pages/Calculators";
 import { AttorneyFee } from "./pages/AttorneyFee";
 import { EnforcementFee } from "./pages/EnforcementFee";
+import { NotaryFee } from "./pages/NotaryFee";
 import { AprFee } from "./pages/AprFee";
 import { CadastreFee } from "./pages/CadastreFee";
 import { PropertyTax } from "./pages/PropertyTax";
@@ -47,6 +48,7 @@ const PAGES = {
   calculator: Calculator,
   attorneyFee: AttorneyFee,
   enforcementFee: EnforcementFee,
+  notaryFee: NotaryFee,
   aprFee: AprFee,
   cadastreFee: CadastreFee,
   propertyTax: PropertyTax,

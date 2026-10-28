@@ -4,7 +4,7 @@ import { positiveInt } from "./calc.js";
 // Amounts are indexed yearly, so recheck them after each published adjustment.
 
 export const LAW = "Zakon o republičkim administrativnim taksama (usklađeni iznosi, Sl. glasnik RS 54/2026)";
-export const VERIFIED_ON = "29. 9. 2026.";
+export const VERIFIED_ON = "2026-10-28";
 
 export const SOURCES = [
   { label: "Zakon o republičkim administrativnim taksama, prečišćen tekst, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/2003/43/2/reg" },
@@ -18,7 +18,7 @@ export const SOURCES = [
   },
 ];
 
-// Tarifni broj 1: the request fee, shown separately because RGZ practice charges it on top of TB 215b.
+// Tarifni broj 1: the request fee, owed on top of TB 215b because član 11 taxes both the request and the act.
 export const REQUEST_FEE = { label: "Taksa za zahtev", basis: "tarifni broj 1", amount: 430 };
 
 // TB 215b st. 5 t. 16: tier by the secured claim; upper bounds are inclusive ("do", then "preko … do").
@@ -66,7 +66,7 @@ export const SERVICES = [
     label: "Kopija plana (izvod iz digitalnog plana nepokretnosti)",
     amount: 1_010,
     basis: "TB 215b st. 3 t. 2",
-    extras: [{ key: "parcele", label: "Broj katastarskih parcela", amount: 430, from: 1 }],
+    extras: [{ key: "parcele", label: "Broj susednih katastarskih parcela", amount: 430, from: 1 }],
   },
   { id: "uverenje", label: "Uverenje o podacima poslednjeg stanja", amount: 1_310, basis: "TB 215b st. 3 t. 3" },
   { id: "uverenje-promene", label: "Uverenje o promenama, do pet promena", amount: 5_900, basis: "TB 215b st. 3 t. 4" },

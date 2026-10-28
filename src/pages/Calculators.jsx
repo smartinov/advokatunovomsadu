@@ -26,8 +26,8 @@ export function Calculators() {
           <p className="label">Kalkulatori</p>
           <h1>Kalkulatori troškova</h1>
           <p className="lede">
-            Takse, tarife i porezi koje plaćate u sudskom postupku, izvršenju, APR-u, katastru i poreskoj upravi, prema
-            važećim propisima.
+            Takse, tarife i porezi koje plaćate u sudskom postupku, izvršenju, kod javnog beležnika, u APR-u, katastru i
+            poreskoj upravi, prema važećim propisima.
           </p>
         </div>
       </section>

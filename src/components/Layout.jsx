@@ -13,7 +13,7 @@ const NAV = [
   {
     path: "/kalkulatori/",
     label: "Kalkulatori",
-    page: ["calculators", "calculator", "attorneyFee", "enforcementFee", "aprFee", "cadastreFee", "propertyTax"],
+    page: ["calculators", "calculator", "attorneyFee", "enforcementFee", "notaryFee", "aprFee", "cadastreFee", "propertyTax"],
   },
   { path: "/cesta-pitanja/", label: "Česta pitanja", page: ["faq"] },
   { path: "/kontakt/", label: "Kontakt", page: ["contact"] },

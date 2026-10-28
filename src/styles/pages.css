@@ -118,6 +118,11 @@
 .calc-breakdown .total { border-bottom: 0; font-weight: 600; color: var(--on-deep); }
 .calc-notes { margin-top: 28px; padding: 16px 18px; border-left: 2px solid var(--copper-soft); background: rgba(207, 154, 100, 0.08); font-size: 14px; color: var(--on-deep-soft); }
 .calc-notes ul { margin: 8px 0 0; padding-left: 18px; }
+.calc-examples { width: 100%; border-collapse: collapse; font-size: 15px; margin-bottom: 56px; }
+.calc-examples caption { text-align: left; font-family: var(--serif); font-size: 26px; margin-bottom: 12px; }
+.calc-examples th, .calc-examples td { padding: 10px 0; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; vertical-align: top; }
+.calc-examples thead th { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); }
+.calc-examples td, .calc-examples thead th:last-child { text-align: right; padding-left: 16px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .calc-source { font-size: 14px; color: var(--ink-mute); border-top: 1px solid var(--rule); padding-top: 24px; margin-bottom: 80px; }
 .calc-source ul { margin: 8px 0 0; padding-left: 18px; }
 .calc-share { margin-top: 28px; }

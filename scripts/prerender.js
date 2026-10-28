@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { notFound, render, renderHead, renderSitemap, routes } from "../dist-ssr/entry-server.js";
+import { notFound, render, renderHead, renderLlms, renderSitemap, routes } from "../dist-ssr/entry-server.js";
 
 const base = process.env.BASE_PATH || "/";
 const preview = base !== "/";
@@ -29,4 +29,5 @@ for (const route of routes) {
 }
 fs.writeFileSync("dist/404.html", page(notFound));
 fs.writeFileSync("dist/sitemap.xml", renderSitemap());
+fs.writeFileSync("dist/llms.txt", renderLlms());
 fs.rmSync("dist-ssr", { recursive: true });

@@ -4,7 +4,7 @@ import { positiveInt } from "./calc.js";
 // The tariff states both fees and dispute-value limits in poeni, so a new point value rescales both.
 
 export const LAW = "Tarifa o nagradama i naknadama troškova za rad advokata (Sl. glasnik RS 43/2023 i 56/2025)";
-export const VERIFIED_ON = "30. 9. 2026.";
+export const VERIFIED_ON = "2026-10-28";
 export const POINT_VALUE = 50; // Član 15.
 // Tarifni brojevi 3 i 15: attending a hearing, held or not, adds 100 poena per started hour; the fee counts the first hour.
 export const ATTENDANCE_POINTS = 100;
@@ -15,10 +15,7 @@ export const SOURCES = [
     label: "Tarifa o nagradama i naknadama troškova za rad advokata, prečišćen tekst, Paragraf Lex",
     url: "https://www.paragraf.rs/propisi/tarifa_o_nagradama_i_naknadama_troskova_za_rad_advokata.html",
   },
-  {
-    label: "Tabelarni prikaz tarife, Advokatska komora Srbije",
-    url: "https://aks.org.rs/sr_lat/tabelarni-prikaz-tarife-o-nagradama-i-naknadama-troskova-za-rad-advokata/",
-  },
+  { label: "Propisi, Advokatska komora Srbije", url: "https://aks.org.rs/propisi/" },
 ];
 
 // Tarifni broj 13: [vrednost spora do (poena), nagrada (poena)], upper limit inclusive.

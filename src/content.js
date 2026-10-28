@@ -293,6 +293,7 @@ export const articles = [
     "slug": "ugovor-o-dozivotnom-izdrzavanju",
     "title": "Ugovor o doživotnom izdržavanju",
     "tag": "Nasledno pravo",
+    "calculators": ["/katastar-takse/"],
     "lede": "Kada se zaključuje ugovor o doživotnom izdržavanju, kako se overava i kada se može osporiti ili raskinuti.",
     "img": image1,
     "body": [
@@ -307,6 +308,7 @@ export const articles = [
     "slug": "naplata-duga-faktura",
     "title": "Naplata duga po osnovu računa (faktura)",
     "tag": "Privredno pravo",
+    "calculators": ["/javnoizvrsiteljska-tarifa/", "/sudska-taksa/"],
     "lede": "Kako se dug po računu ili fakturi naplaćuje, od pisane opomene do prinudne naplate.",
     "img": image5,
     "body": [
@@ -324,6 +326,7 @@ export const articles = [
     "slug": "nezakonit-otkaz",
     "title": "Nezakonit otkaz",
     "tag": "Radno pravo",
+    "calculators": ["/advokatska-tarifa/"],
     "lede": "Šta je nezakonit otkaz, u kom roku se zaposleni može zaštititi i koje su posledice po poslodavca.",
     "img": image2,
     "body": [
@@ -358,6 +361,7 @@ export const articles = [
     "slug": "naknada-stete-povreda-na-radu",
     "title": "Naknada štete u slučaju povrede na radu",
     "tag": "Radno pravo",
+    "calculators": ["/advokatska-tarifa/"],
     "lede": "Kako se prijavljuje povreda na radu i kako zaposleni ostvaruje pravo na lečenje, naknadu za vreme privremene sprečenosti za rad i naknadu nematerijalne štete.",
     "img": image4,
     "body": [
@@ -375,6 +379,7 @@ export const articles = [
     "slug": "osnivanje-firme",
     "title": "Osnivanje firme",
     "tag": "Privredno pravo",
+    "calculators": ["/apr-naknade/"],
     "lede": "Kako se osniva firma, od izbora pravne forme do registracije u APR-u.",
     "img": image6,
     "body": [

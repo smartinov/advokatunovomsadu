@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { ACTIONS, COURTS, LAW, SOURCES, VERIFIED_ON, courtFee, readQuery, toParams } from "../taksa";
 import { rsd, parseRsd } from "../calc";
-import { ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
+import { Examples, ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
+
+const EXAMPLES = [100_000, 500_000, 1_000_000, 5_000_000].flatMap((value) =>
+  COURTS.map((c) => [
+    `Tužba, ${c.label.toLowerCase()}, vrednost spora ${rsd(value)} RSD`,
+    courtFee({ court: c.id, action: "tuzba", value }).total,
+  ]),
+);
 
 export function Calculator() {
   const [court, setCourt] = useState("opsti");
@@ -133,7 +140,7 @@ export function Calculator() {
                   <dd>× {r.action.factor === 1 / 3 ? "1/3" : r.action.factor === 1 / 2 ? "1/2" : r.action.factor}</dd>
                 </div>
                 <div className="total">
-                  <dt>Ukupno</dt>
+                  <dt>Ukupno, zaokruženo naniže na desetice (član 6)</dt>
                   <dd>{rsd(r.total)} RSD</dd>
                 </div>
               </dl>
@@ -157,6 +164,7 @@ export function Calculator() {
           </section>
         </div>
 
+        <Examples rows={EXAMPLES} />
         <Sources law={LAW} basis="Taksena tarifa, tarifni brojevi 1–3" verifiedOn={VERIFIED_ON} sources={SOURCES}>
           taksa zavisi i od okolnosti predmeta.
         </Sources>
