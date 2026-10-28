@@ -11,7 +11,12 @@ import {
   toParams,
 } from "../izvrsitelj";
 import { rsd, parseRsd } from "../calc";
-import { ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
+import { Examples, ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
+
+const EXAMPLES = [100_000, 500_000, 1_000_000, 5_000_000].map((value) => [
+  `Glavni dug ${rsd(value)} RSD, izvršitelj sprovede izvršenje, bez PDV-a`,
+  enforcementFee({ value, collection: "redovno", subject: "ostalo", vat: "ne" }).total,
+]);
 
 export function EnforcementFee() {
   const [collection, setCollection] = useState("redovno");
@@ -164,6 +169,7 @@ export function EnforcementFee() {
           </section>
         </div>
 
+        <Examples rows={EXAMPLES} />
         <Sources law={LAW} basis="tarifni brojevi 1 i 3, članovi 9–15 i 18" verifiedOn={VERIFIED_ON} sources={SOURCES}>
           stvarni iznos predujma javni izvršitelj određuje zaključkom, prema radnjama u predmetu.
         </Sources>

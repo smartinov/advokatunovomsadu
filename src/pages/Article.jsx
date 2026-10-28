@@ -1,5 +1,6 @@
 import { articles } from "../content";
 import { href } from "../components/Layout";
+import { findRoute } from "../routes";
 import { ArticleCard, readingMinutes } from "./Articles";
 
 export function Article({ article: a }) {
@@ -47,6 +48,18 @@ export function Article({ article: a }) {
             ) : (
               <p key={i}>{b}</p>
             ),
+          )}
+          {a.calculators && (
+            <>
+              <h2>Kalkulatori troškova</h2>
+              <ul>
+                {a.calculators.map((path) => (
+                  <li key={path}>
+                    <a href={href(path)}>{findRoute(path).title.split(" | ")[0]}</a>
+                  </li>
+                ))}
+              </ul>
+            </>
           )}
         </div>
         <div className="article-aside">

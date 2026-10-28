@@ -1,14 +1,28 @@
 import { useState } from "react";
 import { LAW, SERVICES, SOURCES, VERIFIED_ON, aprFee, readQuery, toParams } from "../apr";
 import { rsd, parseRsd } from "../calc";
-import { ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
+import { Examples, ShareLink, Sources, replaceQuery, useQueryOnLoad } from "../components/CalcParts";
 
-// Shared by the APR and cadastre pages: both pick one service from a fixed fee list and add per-item extras.
-export function FeeCalculator({ label, title, lede, resultLabel, services, fee, readQuery, toParams, valueLabel, notes, sources }) {
+// Shared by the fee-list pages: each picks one service from a fixed list and adds per-item extras.
+export function FeeCalculator({
+  label,
+  title,
+  lede,
+  resultLabel,
+  services,
+  fee,
+  readQuery,
+  toParams,
+  valueLabel,
+  initialValue = "",
+  notes,
+  examples,
+  sources,
+}) {
   const [service, setService] = useState(services[0].id);
   const [counts, setCounts] = useState({});
   const [late, setLate] = useState(false);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(initialValue);
   const value = parseRsd(input);
   const s = services.find((x) => x.id === service);
   const state = { service, counts, late, value };
@@ -162,6 +176,7 @@ export function FeeCalculator({ label, title, lede, resultLabel, services, fee, 
           </section>
         </div>
 
+        <Examples rows={examples} />
         {sources}
       </div>
     </>
@@ -179,6 +194,7 @@ export function AprFee() {
       fee={aprFee}
       readQuery={readQuery}
       toParams={toParams}
+      examples={SERVICES.map((s) => [s.label, aprFee({ service: s.id }).total])}
       notes={
         <>
           <li>Naknada se plaća unapred, uz prijavu. Isti iznos važi za elektronsku i papirnu prijavu.</li>

@@ -4,7 +4,7 @@ import { positiveInt } from "./calc.js";
 // Amounts are indexed yearly by CPI (član 42), so recheck them after each published adjustment.
 
 export const LAW = "Odluka o naknadama za poslove registracije i druge usluge koje pruža Agencija za privredne registre (Sl. glasnik RS 95/2025)";
-export const VERIFIED_ON = "29. 9. 2026.";
+export const VERIFIED_ON = "2026-10-28";
 
 export const SOURCES = [
   { label: "Odluka o naknadama APR, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/drugidrzavniorganiorganizacije/odluka/2025/95/1/reg" },

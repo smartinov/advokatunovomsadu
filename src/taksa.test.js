@@ -28,6 +28,17 @@ test("action factors", () => {
   assert.equal(fee("opsti", "izvrsenje-izvrsitelj", 500_000), 7_000);
 });
 
+test("član 6 rounds every fee down to whole tens", () => {
+  assert.equal(fee("privredni", "tuzba", 12_345), 5_740);
+  assert.equal(fee("privredni", "tuzba", 10_166), 5_600);
+  assert.equal(fee("opsti", "tuzba", 12_345), 3_290);
+  assert.equal(fee("opsti", "izvrsenje-izvrsitelj", 7_777), 930);
+  assert.equal(fee("opsti", "izvrsenje-izvrsitelj", 12_345), 1_090);
+  assert.equal(fee("opsti", "revizija", 12_345), 6_580);
+  // Two separate halves, each rounded: 1.646,90 → 1.640, twice.
+  assert.equal(fee("opsti", "platni-nalog", 12_345), 3_280);
+});
+
 test("rejects invalid input", () => {
   assert.equal(courtFee({ court: "opsti", action: "tuzba", value: 0 }), null);
   assert.equal(courtFee({ court: "x", action: "tuzba", value: 1 }), null);

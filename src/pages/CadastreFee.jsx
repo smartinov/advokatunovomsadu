@@ -1,4 +1,5 @@
 import { LAW, SERVICES, SOURCES, VERIFIED_ON, cadastreFee, readQuery, toParams } from "../katastar";
+import { rsd } from "../calc";
 import { Sources } from "../components/CalcParts";
 import { FeeCalculator } from "./AprFee";
 
@@ -14,11 +15,19 @@ export function CadastreFee() {
       readQuery={readQuery}
       toParams={toParams}
       valueLabel="Iznos potraživanja koje obezbeđuje hipoteka (RSD)"
+      examples={SERVICES.flatMap((s) =>
+        s.tiers
+          ? [1_000_000, 10_000_000, 50_000_000, 100_000_000].map((value) => [
+              `${s.label}, potraživanje ${rsd(value)} RSD`,
+              cadastreFee({ service: s.id, value }).total,
+            ])
+          : [[s.label, cadastreFee({ service: s.id }).total]],
+      )}
       notes={
         <>
           <li>
-            Taksu za zahtev od 430 dinara prikazujemo posebno, jer je RGZ po svojoj praksi naplaćuje
-            uz taksu za upis.
+            Taksu za zahtev od 430 dinara prikazujemo posebno: plaća se uz taksu za upis, jer se taksa plaća i za zahtev
+            i za radnje (član 11).
           </li>
           <li>
             Taksa za upis svojine ne zavisi od vrednosti nepokretnosti ni od toga da li je u pitanju stan, kuća ili

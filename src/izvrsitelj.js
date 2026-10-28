@@ -4,7 +4,7 @@ import { positiveInt } from "./calc.js";
 // Fixed rows are points; percentage rows add a share of the amount above the previous bound, in dinars.
 
 export const LAW = "Javnoizvršiteljska tarifa (Sl. glasnik RS 93/2019 i 15/2023)";
-export const VERIFIED_ON = "29. 9. 2026.";
+export const VERIFIED_ON = "2026-10-28";
 
 export const SOURCES = [
   { label: "Javnoizvršiteljska tarifa, prečišćen tekst, Pravno-informacioni sistem RS (zvanični)", url: "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/ministarstva/drugiakt/2019/93/1/reg" },

@@ -107,6 +107,21 @@ function structuredData(route, base) {
     ];
   }
   if (route.page === "notfound") return [];
+  if (route.verified) {
+    return [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: route.title.split(" | ")[0],
+        url: `${SITE}${route.path}`,
+        inLanguage: "sr-RS",
+        // A re-check that changes nothing is a review, not a modification, so it must not refresh dateModified.
+        lastReviewed: route.verified,
+        isPartOf: { "@id": `${SITE}/#website` },
+      },
+      pageCrumbs(route),
+    ];
+  }
   return [pageCrumbs(route)];
 }
 
@@ -134,6 +149,28 @@ export function renderHead(route, { base, preview }) {
   ]
     .filter(Boolean)
     .join("\n    ");
+}
+
+// llmstxt.org format: a plain index of the pages, built from the same routes as the sitemap.
+export function renderLlms() {
+  const link = (r) => `- [${r.title.split(" | ")[0]}](${SITE}${r.path}): ${r.description}`;
+  const home = routes[0];
+  return [
+    `# ${office.name}`,
+    "",
+    `> ${home.description}`,
+    "",
+    "Kalkulatori računaju iznose prema propisu koji navode, uz datum poslednje provere na svakoj stranici.",
+    "",
+    "## Kalkulatori",
+    "",
+    ...routes.filter((r) => r.hub).map(link),
+    "",
+    "## Stranice",
+    "",
+    ...routes.filter((r) => !r.hub && r !== home).map(link),
+    "",
+  ].join("\n");
 }
 
 export function renderSitemap() {

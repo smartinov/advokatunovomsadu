@@ -8,6 +8,7 @@ registerHooks({
     url.endsWith(".webp") ? { format: "module", source: `export default ${JSON.stringify(url)}`, shortCircuit: true } : next(url, context),
 });
 const { articles } = await import("./content.js");
+const { routes } = await import("./routes.js");
 
 // Extend deliberately: every tag becomes a breadcrumb and a card label.
 const TAGS = ["Krivično pravo", "Nasledno pravo", "Porodično pravo", "Privredno pravo", "Radno pravo"];
@@ -33,6 +34,15 @@ for (const a of articles) {
     }
   });
 }
+
+test("article calculator links point to calculator routes", () => {
+  const calculators = routes.filter((r) => r.hub).map((r) => r.path);
+  for (const a of articles) for (const path of a.calculators ?? []) assert.ok(calculators.includes(path), `${a.slug}: ${path}`);
+});
+
+test("calculator routes carry an ISO verified date", () => {
+  for (const r of routes.filter((r) => r.hub)) assert.match(r.verified, /^\d{4}-\d{2}-\d{2}$/, r.path);
+});
 
 test("article slugs are unique", () => {
   const slugs = articles.map((a) => a.slug);
